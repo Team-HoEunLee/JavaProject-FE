@@ -6,5 +6,5 @@
     "useTabs": false,
     "tabWidth": 2,
     "printWidth": 100,
-    "arrowPares": "always"
+    "indent": ["error", 2]
   }
