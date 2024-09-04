@@ -41,7 +41,6 @@ module.exports = {
       semi52: [
         "52px",
         {
-          fontFamily: "Pretendard-Semibold",
           fontWeight: 600,
           lineHeight: "54px"
         }
