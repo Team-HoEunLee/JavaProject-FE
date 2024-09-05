@@ -1,8 +1,9 @@
 interface ButtonPropsType {
   text?: string;
+  onClick?: () => void;
 }
 
-const Button = ({ text }: ButtonPropsType) => {
+const Button = ({ text, onClick }: ButtonPropsType) => {
   return (
     <div className="w-full flex justify-center items-center rounded-lg bg-main300 p-3">
       <p className="text-semi16 text-white">{text}</p>
