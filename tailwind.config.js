@@ -39,167 +39,170 @@ module.exports = {
     },
     fontSize: {
       semi52: [
-        "52px",
+        '52px',
         {
           fontWeight: 600,
-          lineHeight: "54px"
-        }
+          lineHeight: '54px',
+        },
       ],
       semi48: [
-        "48px",
+        '48px',
         {
           fontWeight: 600,
-          lineHeight: "52px"
-        }
+          lineHeight: '52px',
+        },
       ],
       bold40: [
-        "40px",
+        '40px',
         {
           fontWeight: 700,
-          lineHeight: "48px"
-        }
+          lineHeight: '48px',
+        },
       ],
       medium38: [
-        "38px",
+        '38px',
         {
           fontWeight: 500,
-          lineHeight: "48px"
-        }
+          lineHeight: '48px',
+        },
       ],
       semi36: [
-        "36px",
+        '36px',
         {
           fontWeight: 600,
-          lineHeight: "48px"
-        }
+          lineHeight: '48px',
+        },
       ],
       semi32: [
-        "32px",
+        '32px',
         {
           fontWeight: 600,
-          lineHeight: "44px"
-        }
+          lineHeight: '44px',
+        },
       ],
       bold24: [
-        "24px",
+        '24px',
         {
           fontWeight: 700,
-          lineHeight: "36px"
-        }
+          lineHeight: '36px',
+        },
       ],
       semi24: [
-        "24px",
+        '24px',
         {
           fontWeight: 600,
-          lineHeight: "36px"
-        }
+          lineHeight: '36px',
+        },
       ],
       medium24: [
-        "24px",
+        '24px',
         {
           fontWeight: 500,
-          lineHeight: "36px"
-        }
+          lineHeight: '36px',
+        },
       ],
       semi20: [
-        "20px",
+        '20px',
         {
           fontWeight: 600,
-          lineHeight: "24px"
-        }
+          lineHeight: '24px',
+        },
       ],
       medium20: [
-        "20px",
+        '20px',
         {
           fontWeight: 500,
-          lineHeight: "24px"
-        }
+          lineHeight: '24px',
+        },
       ],
       semi18: [
-        "18px",
+        '18px',
         {
           fontWeight: 600,
-          lineHeight: "22px"
-        }
+          lineHeight: '22px',
+        },
       ],
       medium18: [
-        "18px",
+        '18px',
         {
           fontWeight: 500,
-          lineHeight: "22px"
-        }
+          lineHeight: '22px',
+        },
       ],
       regular18: [
-        "18px",
+        '18px',
         {
           fontWeight: 400,
-          lineHeight: "22px"
-        }
+          lineHeight: '22px',
+        },
       ],
       bold16: [
-        "16px",
+        '16px',
         {
           fontWeight: 700,
-          lineHeight: "20px"
-        }
+          lineHeight: '20px',
+        },
       ],
       semi16: [
-        "16px",
+        '16px',
         {
           fontWeight: 600,
-          lineHeight: "20px"
-        }
+          lineHeight: '20px',
+        },
       ],
       medium16: [
-        "16px",
+        '16px',
         {
           fontWeight: 500,
-          lineHeight: "20px"
-        }
+          lineHeight: '20px',
+        },
       ],
       regular16: [
-        "16px",
+        '16px',
         {
           fontWeight: 500,
-          lineHeight: "20px"
-        }
+          lineHeight: '20px',
+        },
       ],
       semi14: [
-        "14px",
+        '14px',
         {
           fontWeight: 600,
-          lineHeight: "18px"
-        }
+          lineHeight: '18px',
+        },
       ],
       medium14: [
-        "14px",
+        '14px',
         {
           fontWeight: 500,
-          lineHeight: "20px"
-        }
+          lineHeight: '20px',
+        },
       ],
       regular14: [
-        "14px",
+        '14px',
         {
           fontWeight: 400,
-          lineHeight: "24px"
-        }
+          lineHeight: '24px',
+        },
       ],
       medium12: [
-        "12px",
+        '12px',
         {
           fontWeight: 500,
-          lineHeight: "14px"
-        }
+          lineHeight: '14px',
+        },
       ],
       regular12: [
-        "12px",
+        '12px',
         {
           fontWeight: 400,
-          lineHeight: "14px"
-        }
+          lineHeight: '14px',
+        },
       ],
-    }
+    },
+    backgroundImage: {
+      auth: "url('./assets/Auth/Background.png')",
+    },
   },
   plugins: [],
 };
