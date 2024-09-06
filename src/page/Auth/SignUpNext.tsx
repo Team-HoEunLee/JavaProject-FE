@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Logo, Bag, ArrowDown } from '../../assets/Auth/index';
 import Input from '../../components/Auth/Input';
 import Button from '../../components/Auth/Button';
@@ -11,12 +11,27 @@ const SignUpNext = () => {
   const navigate = useNavigate();
   const [openOption, setOpenOption] = useState<boolean>(false);
   const modalRef = useRef<HTMLDivElement>(null);
+  const [checkedList, setCheckedList] = useState<string[]>([]);
 
   const modalOutSideClick = (e: any) => {
     if (modalRef.current === e.target) {
       setOpenOption(false);
     }
   };
+
+  const clickOptionsValue = (value: string) => {
+    setCheckedList((checkedList) => {
+      if (checkedList.includes(value)) {
+        return checkedList.filter((item) => item !== value);
+      } else {
+        return [...checkedList, value];
+      }
+    });
+  };
+
+  useEffect(() => {
+    console.log(checkedList);
+  }, [checkedList]);
 
   return (
     <div
@@ -49,15 +64,21 @@ const SignUpNext = () => {
           {openOption ? (
             <div className="w-44 h-48 absolute right-5 bottom-16 bg-white rounded-md border border-gray400 overflow-scroll">
               {Major.map((value, index) => (
-                <Options key={index} text={value} />
+                <Options
+                  key={index}
+                  text={value}
+                  selected={checkedList.includes(value)}
+                  onClick={() => clickOptionsValue(value)}
+                />
               ))}
             </div>
           ) : (
             <></>
           )}
           <div className="w-80 flex flex-wrap gap-2">
-            <MajorSubjectTag text="프론트엔드" />
-            <MajorSubjectTag text="아이오에스" />
+            {checkedList.map((value, index) => (
+              <MajorSubjectTag key={index} text={value} />
+            ))}
           </div>
         </div>
         <div className="flex flex-col gap-4">
