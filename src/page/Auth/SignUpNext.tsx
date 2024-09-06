@@ -1,3 +1,4 @@
+import { useState, useRef } from 'react';
 import { Logo, Bag, ArrowDown } from '../../assets/Auth/index';
 import Input from '../../components/Auth/Input';
 import Button from '../../components/Auth/Button';
@@ -8,10 +9,22 @@ import { useNavigate } from 'react-router-dom';
 
 const SignUpNext = () => {
   const navigate = useNavigate();
+  const [openOption, setOpenOption] = useState<boolean>(false);
+  const modalRef = useRef<HTMLDivElement>(null);
+
+  const modalOutSideClick = (e: any) => {
+    if (modalRef.current === e.target) {
+      setOpenOption(false);
+    }
+  };
 
   return (
-    <div className="w-full h-screen flex justify-center items-center bg-auth bg-cover">
-      <div className="flex flex-col gap-14 p-16 rounded-3xl bg-white">
+    <div
+      className="w-full h-screen flex justify-center items-center bg-auth bg-cover"
+      ref={modalRef}
+      onClick={(e) => modalOutSideClick(e)}
+    >
+      <div className="flex relative flex-col gap-14 p-16 rounded-3xl bg-white">
         <div className="flex flex-col justify-center items-center h-20">
           <Logo />
           <p className="text-regular12">회원가입</p>
@@ -25,17 +38,24 @@ const SignUpNext = () => {
               placeholder={value.placeholder}
             />
           ))}
-          <div className="w-full flex py-3.5 px-1.5 items-center border-gray300 border-b gap-2">
+          <div
+            className="w-full flex py-3.5 px-1.5 items-center border-gray300 border-b gap-2"
+            onClick={() => setOpenOption(!openOption)}
+          >
             <Bag />
             <p className="w-full text-regular14 text-gray700">전공을 선택해주세요 (선택)</p>
             <ArrowDown />
           </div>
-          <div className="w-44 h-48 overflow-scroll absolute bg-white rounded-md border border-gray400">
-            {Major.map((value, index) => (
-              <Options key={index} text={value} />
-            ))}
-          </div>
-          <div className="w-full flex gap-2">
+          {openOption ? (
+            <div className="w-44 h-48 absolute right-5 bottom-16 bg-white rounded-md border border-gray400 overflow-scroll">
+              {Major.map((value, index) => (
+                <Options key={index} text={value} />
+              ))}
+            </div>
+          ) : (
+            <></>
+          )}
+          <div className="w-80 flex flex-wrap gap-2">
             <MajorSubjectTag text="프론트엔드" />
             <MajorSubjectTag text="아이오에스" />
           </div>
