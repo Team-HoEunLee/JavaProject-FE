@@ -14,7 +14,7 @@ export const AuthLogin: AuthDataType[] = [
   },
 ];
 
-export const AuthSignup: AuthDataType[] = [
+export const AuthSignUp: AuthDataType[] = [
   {
     name: 'userId',
     placeholder: '아이디를 입력해주세요',
@@ -32,7 +32,7 @@ export const AuthSignup: AuthDataType[] = [
   },
 ];
 
-export const AuthSignupNext: AuthDataType[] = [
+export const AuthSignUpNext: AuthDataType[] = [
   {
     name: 'nickName',
     placeholder: '닉네임을 입력해주세요',
