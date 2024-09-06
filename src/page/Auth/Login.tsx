@@ -2,8 +2,11 @@ import { Logo } from '../../assets/Auth/index';
 import Input from '../../components/Auth/Input';
 import Button from '../../components/Auth/Button';
 import { AuthLogin } from '../../constants/index';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="w-full h-screen flex justify-center items-center bg-auth bg-cover">
       <div className="flex flex-col gap-14 p-16 rounded-3xl bg-white">
@@ -22,11 +25,11 @@ const Login = () => {
           ))}
         </div>
         <div className="flex flex-col gap-4">
-          <Button text="Login" />
-          <div className="flex justify-center gap-1">
+          <Button text="Login" onClick={() => navigate('/')} />
+          <a href="/signUp" className="flex justify-center gap-1">
             <p className="text-medium12 text-gray500">다영이 처음이신가요?</p>
             <p className="text-medium12">회원가입</p>
-          </div>
+          </a>
         </div>
       </div>
     </div>

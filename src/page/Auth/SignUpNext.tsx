@@ -1,9 +1,13 @@
 import { Logo, Bag, ArrowDown } from '../../assets/Auth/index';
 import Input from '../../components/Auth/Input';
 import Button from '../../components/Auth/Button';
+import MajorSubjectTag from 'components/Common/MajorSubjectTag';
 import { AuthSignUpNext } from '../../constants/index';
+import { useNavigate } from 'react-router-dom';
 
 const SignUpNext = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="w-full h-screen flex justify-center items-center bg-auth bg-cover">
       <div className="flex flex-col gap-14 p-16 rounded-3xl bg-white">
@@ -25,9 +29,13 @@ const SignUpNext = () => {
             <p className="w-full text-regular14 text-gray700">전공을 선택해주세요 (선택)</p>
             <ArrowDown />
           </div>
+          <div className="w-full flex gap-2">
+            <MajorSubjectTag text="프론트엔드" />
+            <MajorSubjectTag text="디자인" />
+          </div>
         </div>
         <div className="flex flex-col gap-4">
-          <Button text="회원가입" />
+          <Button text="회원가입" onClick={() => navigate('/login')} />
           <a href="/login" className="flex justify-center gap-1">
             <p className="text-medium12 text-gray500">이미 계정이 있으신가요?</p>
             <p className="text-medium12">로그인</p>
