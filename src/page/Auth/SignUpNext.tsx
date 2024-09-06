@@ -2,7 +2,8 @@ import { Logo, Bag, ArrowDown } from '../../assets/Auth/index';
 import Input from '../../components/Auth/Input';
 import Button from '../../components/Auth/Button';
 import MajorSubjectTag from 'components/Common/MajorSubjectTag';
-import { AuthSignUpNext } from '../../constants/index';
+import Options from 'components/Auth/Options';
+import { AuthSignUpNext, Major } from '../../constants/index';
 import { useNavigate } from 'react-router-dom';
 
 const SignUpNext = () => {
@@ -29,9 +30,14 @@ const SignUpNext = () => {
             <p className="w-full text-regular14 text-gray700">전공을 선택해주세요 (선택)</p>
             <ArrowDown />
           </div>
+          <div className="w-44 h-48 overflow-scroll absolute bg-white rounded-md border border-gray400">
+            {Major.map((value, index) => (
+              <Options key={index} text={value} />
+            ))}
+          </div>
           <div className="w-full flex gap-2">
             <MajorSubjectTag text="프론트엔드" />
-            <MajorSubjectTag text="디자인" />
+            <MajorSubjectTag text="아이오에스" />
           </div>
         </div>
         <div className="flex flex-col gap-4">
