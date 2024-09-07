@@ -38,7 +38,7 @@ const UserMain = () => {
     <div className="w-full h-screen flex justify-center">
       <div className="w-[1302px] flex flex-col gap-[48px]">
         <CardItems />
-        <div className="flex gap-[20px]">
+        <div className="flex justify-between">
           <div className="w-[968px] flex flex-col gap-[24px]">
             <Search />
             <div className="py-[24px] px-[40px] flex flex-col gap-[20px] border border-gray400 rounded-md">
