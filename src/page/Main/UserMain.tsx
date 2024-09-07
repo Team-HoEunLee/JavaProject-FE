@@ -26,6 +26,10 @@ const UserMain = () => {
     });
   };
 
+  const handleReset = () => {
+    setCheckedList([]);
+  };
+
   useEffect(() => {
     console.log(checkedList);
   }, [checkedList]);
@@ -60,7 +64,7 @@ const UserMain = () => {
                 <p className="text-medium16 text-gray900">
                   총 <span className="text-bold16 text-main200">100</span>개의 문제가 있습니다
                 </p>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2" onClick={handleReset}>
                   <p className="text-medium14 text-gray900">초기화</p>
                   <Reset />
                 </div>
