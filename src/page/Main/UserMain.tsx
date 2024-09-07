@@ -1,34 +1,39 @@
 import {
-  MainItemsCategory,
   QuestionKeyword,
   MainTableHeader,
   QuestionListDummyValue,
   RankingListDummyValue,
 } from '../../constants/index';
 import { Reset } from '../../assets/Main/index';
+import CardItems from './CardItems';
 import Search from 'components/Main/Search';
 import KeywordTag from 'components/Common/KeywordTag';
 import Level from '../../components/Common/Level';
 import QuestionList from 'components/Main/QuestionList';
 import RankingList from 'components/Main/RankingList';
+import { useState, useEffect } from 'react';
 
 const UserMain = () => {
+  const [checkedList, setCheckedList] = useState<string[]>([]);
+
+  const clickOptionsValue = (value: string) => {
+    setCheckedList((checkedList) => {
+      if (checkedList.includes(value)) {
+        return checkedList.filter((item) => item !== value);
+      } else {
+        return [...checkedList, value];
+      }
+    });
+  };
+
+  useEffect(() => {
+    console.log(checkedList);
+  }, [checkedList]);
+
   return (
     <div className="w-full h-screen flex justify-center">
       <div className="w-[1302px] flex flex-col gap-[48px]">
-        <div className="flex gap-[34px]">
-          {MainItemsCategory.map((value, index) => (
-            <div
-              key={index}
-              className={`w-[300px] h-[280px] relative pt-[32px] pl-[25px] pb-[10px] pr-[10px] rounded-xl ${value.backColor}`}
-            >
-              <p className="w-[140px] text-bold24 text-white">{value.title}</p>
-              <div className="absolute right-[10px] bottom-[10px]">
-                <value.icon />
-              </div>
-            </div>
-          ))}
-        </div>
+        <CardItems />
         <div className="flex gap-[20px]">
           <div className="w-[968px] flex flex-col gap-[24px]">
             <Search />
@@ -38,7 +43,12 @@ const UserMain = () => {
                   <p className="w-[100px] text-bold16 text-gray900">{value.title}</p>
                   <div className="w-full flex flex-wrap gap-[10px]">
                     {value.keywords.map((keyword, keywordIndex) => (
-                      <KeywordTag key={keywordIndex} text={keyword} />
+                      <KeywordTag
+                        key={keywordIndex}
+                        text={keyword}
+                        selected={checkedList.includes(keyword)}
+                        onClick={() => clickOptionsValue(keyword)}
+                      />
                     ))}
                     {value.name === 'Level' ? <Level /> : <></>}
                   </div>
