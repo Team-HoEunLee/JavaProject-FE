@@ -111,7 +111,7 @@ export const QuestionKeyword: QuestionKeywordDataType[] = [
   {
     name: 'Level',
     title: '난이도',
-    keywords: ['모든 난이도'],
+    keywords: [],
   },
   {
     name: 'Solved',
@@ -146,7 +146,7 @@ export const QuestionListDummyValue: QuestionListDataTypes[] = [
   {
     checked: true,
     title: 'HTTPS의 원리를 설명',
-    felid: ['디자인', 'pm', '데이터베이스', '네트워크', '기타'],
+    felid: ['디자인', 'pm'],
     level: 3,
     avgScore: 140,
   },
