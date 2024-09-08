@@ -139,7 +139,14 @@ export const QuestionListDummyValue: QuestionListDataTypes[] = [
   {
     checked: true,
     title: 'HTTPS의 원리를 설명',
-    felid: ['알고리즘', '자료구조', '데이터베이스', '네트워크'],
+    felid: ['알고리즘', '자료구조', '데이터베이스', '네트워크', '기타'],
+    level: 3,
+    avgScore: 140,
+  },
+  {
+    checked: true,
+    title: 'HTTPS의 원리를 설명',
+    felid: ['디자인', 'pm', '데이터베이스', '네트워크', '기타'],
     level: 3,
     avgScore: 140,
   },
