@@ -7,28 +7,22 @@ import KeywordTag from './KeywordTag';
 const Level = () => {
   const Images = [Zero, One, Two, Three, Four];
   const [selectedIndex, setSelectedIndex] = useRecoilState(selectedLevelState);
+  const handleAllLevelsClick = () => {
+    setSelectedIndex(selectedIndex === 0 ? null : 0);
+    console.log(selectedIndex);
+  };
+
   const handleLevelClick = (index: number) => {
-    if (index === -1) {
-      if (selectedIndex === 0) {
-        setSelectedIndex(null);
-      } else {
-        setSelectedIndex(0);
-      }
-    } else {
-      if (selectedIndex === null) {
-        setSelectedIndex(index);
-      } else {
-        setSelectedIndex(index === selectedIndex ? null : index);
-      }
-    }
+    setSelectedIndex(index === selectedIndex ? null : index);
+    console.log(selectedIndex);
   };
 
   return (
     <div className="flex gap-[12px]">
       <KeywordTag
         text="모든 난이도"
-        selected={selectedIndex !== null && !selectedIndex}
-        onClick={() => handleLevelClick(-1)}
+        selected={selectedIndex === 0}
+        onClick={handleAllLevelsClick}
       />
       {Images.map((ImageComponent, index) => (
         <ImageComponent
