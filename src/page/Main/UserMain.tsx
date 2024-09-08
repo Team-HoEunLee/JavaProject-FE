@@ -70,7 +70,7 @@ const UserMain = () => {
                 </div>
               </div>
               <div className="flex flex-col">
-                <div className="flex px-[30px] py-2 gap-[50px] rounded-[8px] bg-main200">
+                <div className="flex justify-between px-[30px] py-2 rounded-[8px] bg-main200">
                   {MainTableHeader.map((value, index) => (
                     <p key={index} className={`text-medium16 text-white ${value.width}`}>
                       {value.text}

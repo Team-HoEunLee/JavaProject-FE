@@ -124,7 +124,7 @@ export const QuestionKeyword: QuestionKeywordDataType[] = [
 export const QuestionListDummyValue: QuestionListDataTypes[] = [
   {
     checked: true,
-    title: '시간복잡도와 공간복잡도 무엇인가요?',
+    title: '시간복잡도와 공간복잡도 무엇인가요? 시간복잡도와 공간복잡도 무엇인가요?',
     felid: ['알고리즘', '자료구조', '데이터베이스'],
     level: 1,
     avgScore: 140,
@@ -155,7 +155,7 @@ export const MainTableHeader: MainTableHeaderDataType[] = [
     text: '문제 제목',
   },
   {
-    width: 'w-[190px]',
+    width: 'w-[180px]',
     text: '분야',
   },
   {
@@ -163,7 +163,7 @@ export const MainTableHeader: MainTableHeaderDataType[] = [
     text: '난이도',
   },
   {
-    width: 'w-[65px]',
+    width: 'w-[62px]',
     text: '평균 점수',
   },
 ];
