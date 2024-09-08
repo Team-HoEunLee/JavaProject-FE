@@ -21,8 +21,8 @@ const CardItems = () => {
             className={classNames(
               'relative flex flex-col justify-between h-[280px] pt-[32px] pl-[25px] pb-[10px] pr-[10px] rounded-xl cursor-pointer transition-all duration-500 ease-in-out',
               {
-                'w-[1302px] scale-105': isSelected,
-                'w-[300px] scale-100': !isSelected,
+                'w-[1302px]': isSelected,
+                'w-[300px]': !isSelected,
                 hidden: !isSelected && selectedIndex !== null,
                 flex: !(!isSelected && selectedIndex !== null),
               },
