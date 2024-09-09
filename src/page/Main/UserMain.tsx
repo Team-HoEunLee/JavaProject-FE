@@ -13,13 +13,27 @@ import QuestionList from 'components/Main/QuestionList';
 import RankingList from 'components/Main/RankingList';
 import { useState, useEffect } from 'react';
 import { useCheckedList } from 'components/Hooks/useCheckedList';
+import { selectedFelidState, selectedSolveState } from '../../atom/SelectedCategory';
+import { useRecoilState } from 'recoil';
 
 const UserMain = () => {
   const { checkedList, handleChange, handleReset } = useCheckedList();
+  const [felidCheckedList, setFelidCheckedList] = useRecoilState(selectedFelidState);
+  const [solveCheckedList, setSolveCheckedList] = useRecoilState(selectedSolveState);
 
-  useEffect(() => {
-    console.log(checkedList);
-  }, [checkedList]);
+  const handelFelidChange = (value: string) => {
+    setFelidCheckedList((felidCheckedList) => {
+      const currentList = felidCheckedList ?? [];
+
+      return currentList.includes(value)
+        ? currentList.filter((item) => item !== value)
+        : [...currentList, value];
+    });
+  };
+
+  const handleSolveChange = (value: string) => {
+    setSolveCheckedList(solveCheckedList === value ? '모든 상태' : value);
+  };
 
   return (
     <div className="w-full h-screen flex justify-center">
@@ -37,8 +51,16 @@ const UserMain = () => {
                       <KeywordTag
                         key={keywordIndex}
                         text={keyword}
-                        selected={checkedList.includes(keyword)}
-                        onClick={() => handleChange(keyword)}
+                        selected={
+                          value.name === 'Solved'
+                            ? solveCheckedList === keyword
+                            : (felidCheckedList?.includes(keyword) ?? false)
+                        }
+                        onClick={() =>
+                          value.name === 'Solved'
+                            ? handleSolveChange(keyword)
+                            : handelFelidChange(keyword)
+                        }
                       />
                     ))}
                     {value.name === 'Level' ? <Level /> : <></>}
