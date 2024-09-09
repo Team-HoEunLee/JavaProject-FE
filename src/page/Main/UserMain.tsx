@@ -12,23 +12,11 @@ import Level from '../../components/Common/Level';
 import QuestionList from 'components/Main/QuestionList';
 import RankingList from 'components/Main/RankingList';
 import { useState, useEffect } from 'react';
+import { useCheckedList } from 'components/Hooks/useCheckedList';
 
 const UserMain = () => {
-  const [checkedList, setCheckedList] = useState<string[]>([]);
 
-  const clickOptionsValue = (value: string) => {
-    setCheckedList((checkedList) => {
-      if (checkedList.includes(value)) {
-        return checkedList.filter((item) => item !== value);
-      } else {
-        return [...checkedList, value];
-      }
-    });
-  };
-
-  const handleReset = () => {
-    setCheckedList([]);
-  };
+  const { checkedList, handleChange, handleReset } = useCheckedList();
 
   useEffect(() => {
     console.log(checkedList);
@@ -51,7 +39,7 @@ const UserMain = () => {
                         key={keywordIndex}
                         text={keyword}
                         selected={checkedList.includes(keyword)}
-                        onClick={() => clickOptionsValue(keyword)}
+                        onClick={() => handleChange(keyword)}
                       />
                     ))}
                     {value.name === 'Level' ? <Level /> : <></>}

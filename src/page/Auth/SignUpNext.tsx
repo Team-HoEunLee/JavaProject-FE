@@ -6,27 +6,19 @@ import MajorSubjectTag from 'components/Common/MajorSubjectTag';
 import Options from 'components/Auth/Options';
 import { AuthSignUpNext, Major } from '../../constants/index';
 import { useNavigate } from 'react-router-dom';
+import { useCheckedList } from 'components/Hooks/useCheckedList';
 
 const SignUpNext = () => {
   const navigate = useNavigate();
   const [openOption, setOpenOption] = useState<boolean>(false);
   const modalRef = useRef<HTMLDivElement>(null);
-  const [checkedList, setCheckedList] = useState<string[]>([]);
+
+  const { checkedList, handleChange, handleReset } = useCheckedList();
 
   const modalOutSideClick = (e: any) => {
     if (modalRef.current === e.target) {
       setOpenOption(false);
     }
-  };
-
-  const clickOptionsValue = (value: string) => {
-    setCheckedList((checkedList) => {
-      if (checkedList.includes(value)) {
-        return checkedList.filter((item) => item !== value);
-      } else {
-        return [...checkedList, value];
-      }
-    });
   };
 
   useEffect(() => {
@@ -68,7 +60,7 @@ const SignUpNext = () => {
                   key={index}
                   text={value}
                   selected={checkedList.includes(value)}
-                  onClick={() => clickOptionsValue(value)}
+                  onClick={() => handleChange(value)}
                 />
               ))}
             </div>
