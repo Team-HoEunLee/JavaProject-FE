@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useRecoilState } from 'recoil';
 import { Zero, One, Two, Three, Four } from '../../assets/Common/index';
 import { selectedLevelState } from 'atom/SelectedCategory';
@@ -9,12 +8,10 @@ const Level = () => {
   const [selectedIndex, setSelectedIndex] = useRecoilState(selectedLevelState);
   const handleAllLevelsClick = () => {
     setSelectedIndex(selectedIndex === 0 ? null : 0);
-    console.log(selectedIndex);
   };
 
   const handleLevelClick = (index: number) => {
     setSelectedIndex(index === selectedIndex ? null : index);
-    console.log(selectedIndex);
   };
 
   return (
