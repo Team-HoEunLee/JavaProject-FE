@@ -15,7 +15,6 @@ import { useState, useEffect } from 'react';
 import { useCheckedList } from 'components/Hooks/useCheckedList';
 
 const UserMain = () => {
-
   const { checkedList, handleChange, handleReset } = useCheckedList();
 
   useEffect(() => {

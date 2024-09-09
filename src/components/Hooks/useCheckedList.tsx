@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 export function useCheckedList() {
-  const [checkedList, setCheckedList] = useState<string[]>([]);
+  const [checkedList, setCheckedList] = useState<string[]>(['모든 상태']);
 
   const handleChange = (value: string) => {
     setCheckedList((checkedList) => {
