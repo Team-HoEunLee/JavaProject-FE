@@ -24,8 +24,8 @@ const QuestionSolving = () => {
               <p className="text-semi24">{title}</p>
               <p className="text-medium18 text-main300">{number}</p>
             </div>
-            <div className="flex justify-between">
-              <div className="w-[380px] flex flex-col justify-between">
+            <div className="h-4/6 flex justify-between">
+              <div className="w-[370px] flex flex-col justify-between">
                 <QuestionInfo
                   relatedField={relatedField}
                   level={level}
@@ -41,7 +41,7 @@ const QuestionSolving = () => {
                 </div>
                 <p className="text-regular16 leading-relaxed">{problemValue}</p>
                 <textarea
-                  className="border border-main300 px-[20px] py-[8px] rounded-[12px] resize-none"
+                  className="h-full border border-main300 px-[20px] py-[8px] rounded-[12px] resize-none"
                   placeholder="문제에 대한 답을 작성해주세요"
                 ></textarea>
               </div>
