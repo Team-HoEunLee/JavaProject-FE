@@ -3,6 +3,7 @@ import Login from '../page/Auth/Login';
 import SignUp from '../page/Auth/SignUp';
 import SignUpNext from '../page/Auth/SignUpNext';
 import Main from '../page/Main/UserMain';
+import QuestionSolving from 'page/Question/QuestionSolving';
 
 const Router = () => {
   return (
@@ -12,6 +13,7 @@ const Router = () => {
         <Route path="/signUp" element={<SignUp />} />
         <Route path="/signUpNext" element={<SignUpNext />} />
         <Route path="/main" element={<Main />} />
+        <Route path="/solve" element={<QuestionSolving />} />
       </Routes>
     </BrowserRouter>
   );

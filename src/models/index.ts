@@ -35,3 +35,22 @@ export interface RankingListDataType {
   name: string;
   score: number;
 }
+
+export interface ProblemExampleDummyDataType {
+  title: string;
+  number: number;
+  relatedField: Array<string>;
+  level: number;
+  solvePerson: number;
+  percentCorrect: number;
+  solveState: boolean;
+  problemValue: string;
+}
+
+export interface ProblemDataType {
+  relatedField: Array<string>;
+  level: number;
+  solvePerson: number;
+  percentCorrect: number;
+  solveState: boolean;
+}
