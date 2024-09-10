@@ -5,7 +5,7 @@ interface PropsType {
 const ProblemTag = ({ text }: PropsType) => {
   return (
     <div className="px-[20px] py-[4px] rounded-[24px] bg-white">
-      <p className="text-main300">{text}</p>
+      <p className="text-main300 text-medium14">{text}</p>
     </div>
   );
 };

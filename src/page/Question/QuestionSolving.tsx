@@ -36,12 +36,12 @@ const QuestionSolving = () => {
                 <SubmitButton text="답변 제출하기" />
               </div>
               <div className="w-[900px] flex flex-col gap-[32px]">
-                <div className="h-[50px] border-b-[2px] border-main300">
-                  <p className="text-medium24">문제</p>
+                <div className="h-[60px] border-b-[2px] border-main200">
+                  <p className="text-medium20">문제</p>
                 </div>
-                <p className="text-regular16 leading-relaxed">{problemValue}</p>
+                <p className="text-regular16 leading-[170%]">{problemValue}</p>
                 <textarea
-                  className="h-full border border-main300 px-[20px] py-[8px] rounded-[12px] resize-none"
+                  className="h-full border border-main200 px-[20px] py-[16px] rounded-[12px] resize-none outline-none"
                   placeholder="문제에 대한 답을 작성해주세요"
                 ></textarea>
               </div>
