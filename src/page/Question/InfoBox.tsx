@@ -21,7 +21,7 @@ const getLevelIcon = (level: number) => {
   }
 };
 
-const QuestionInfo = ({
+const InfoBox = ({
   relatedField,
   level,
   solvePerson,
@@ -73,4 +73,4 @@ const QuestionInfo = ({
   );
 };
 
-export default QuestionInfo;
+export default InfoBox;

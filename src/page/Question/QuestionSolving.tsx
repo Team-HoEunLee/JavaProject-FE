@@ -1,5 +1,5 @@
 import { ProblemExampleDummy } from '../../constants';
-import QuestionInfo from './QuestionInfo';
+import InfoBox from './InfoBox';
 import SubmitButton from 'components/Common/SubmitButton';
 
 const QuestionSolving = () => {
@@ -26,7 +26,7 @@ const QuestionSolving = () => {
             </div>
             <div className="h-4/6 flex justify-between">
               <div className="w-[370px] flex flex-col justify-between">
-                <QuestionInfo
+                <InfoBox
                   relatedField={relatedField}
                   level={level}
                   solvePerson={solvePerson}
