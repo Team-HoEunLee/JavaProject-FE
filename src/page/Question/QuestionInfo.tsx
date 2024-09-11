@@ -4,6 +4,23 @@ import { Zero, One, Two, Three, Four } from '../../assets/Common/index';
 
 const mySkill = ['백엔드', '데브옵스', '인공지능'];
 
+const getLevelIcon = (level: number) => {
+  switch (level) {
+    case 0:
+      return <Zero />;
+    case 1:
+      return <One />;
+    case 2:
+      return <Two />;
+    case 3:
+      return <Three />;
+    case 4:
+      return <Four />;
+    default:
+      return null;
+  }
+};
+
 const QuestionInfo = ({
   relatedField,
   level,
@@ -34,8 +51,8 @@ const QuestionInfo = ({
       <div className="flex items-center gap-[30px]">
         <p className="w-[80px] text-medium16">난이도</p>
         <div className="flex items-center gap-[8px]">
-          <Two />
-          <p className="text-medium14 text-gray600">하위권 문제입니다</p>
+          {getLevelIcon(level)}
+          {/* <p className="text-medium14 text-gray600">하위권 문제입니다</p> */}
         </div>
       </div>
       <div className="flex items-center gap-[30px]">
@@ -48,7 +65,9 @@ const QuestionInfo = ({
       </div>
       <div className="flex items-center gap-[30px]">
         <p className="w-[80px] text-medium16">풀이여부</p>
-        <p className="text-medium16 text-green300">이미 해결된 문제입니다</p>
+        <p className={`text-medium16 ${solveState ? 'text-green300' : 'text-gray800'}`}>
+          {solveState ? '이미 해결된 문제입니다' : '아직 풀이되지 않은 문제입니다'}
+        </p>
       </div>
     </div>
   );
