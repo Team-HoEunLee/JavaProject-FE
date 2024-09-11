@@ -30,9 +30,9 @@ const QuestionInfo = ({
 }: ProblemDataType) => {
   return (
     <div className="flex flex-col px-[20px] pt-[20px] pb-[40px] gap-[30px] rounded-[20px] bg-main100">
-      <div className="h-[36px] items-center flex gap-[20px] border-b-[1.5px] border-purple100">
-        <p>현재 나의 기술스택</p>
-        <div className="flex flex-wrap gap-[8px]">
+      <div className="flex justify-between pb-[12px] border-b-[1.5px] border-purple100">
+        <p className="w-[120px] text-medium16">현재 나의 기술스택</p>
+        <div className="w-[60%] flex flex-wrap gap-[8px]">
           {mySkill.map((value, index) => (
             <p key={index} className="text-medium14 text-purple200">
               {value}
