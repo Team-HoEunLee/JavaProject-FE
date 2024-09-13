@@ -1,9 +1,16 @@
+import { useState } from 'react';
 import { ProblemExampleDummy } from '../../constants';
 import InfoBox from './InfoBox';
 import SubmitButton from 'components/Common/SubmitButton';
 
 const QuestionSolving = () => {
+  const [answer, setAnswer] = useState<string>();
+  const handelChangeAnswer = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setAnswer(e.target.value);
+  };
+
   const answerSubmit = () => {
+    console.log(answer);
     console.log('제출되었습니다~');
   };
 
@@ -45,6 +52,7 @@ const QuestionSolving = () => {
                 </div>
                 <p className="text-regular16 leading-[180%]">{problemValue}</p>
                 <textarea
+                  onChange={(e) => handelChangeAnswer(e)}
                   className="h-full border border-main200 px-[20px] py-[16px] rounded-[12px] resize-none outline-none"
                   placeholder="문제에 대한 답을 작성해주세요"
                 ></textarea>
