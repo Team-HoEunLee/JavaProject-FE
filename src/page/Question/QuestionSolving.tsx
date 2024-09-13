@@ -3,6 +3,10 @@ import InfoBox from './InfoBox';
 import SubmitButton from 'components/Common/SubmitButton';
 
 const QuestionSolving = () => {
+  const answerSubmit = () => {
+    console.log('제출되었습니다~');
+  };
+
   return (
     <div className="w-full h-screen flex justify-center">
       {ProblemExampleDummy.map(
@@ -33,7 +37,7 @@ const QuestionSolving = () => {
                   percentCorrect={percentCorrect}
                   solveState={solveState}
                 />
-                <SubmitButton text="답변 제출하기" />
+                <SubmitButton text="답변 제출하기" onClick={answerSubmit} />
               </div>
               <div className="w-[900px] flex flex-col gap-[32px]">
                 <div className="h-[60px] border-b-[2px] border-main200">
