@@ -52,7 +52,7 @@ const InfoBox = ({
         <p className="w-[80px] text-medium16">난이도</p>
         <div className="flex items-center gap-[8px]">
           {getLevelIcon(level)}
-          {/* <p className="text-medium14 text-gray600">하위권 문제입니다</p> */}
+          <p className="text-medium14 text-gray600">단계 문제입니다</p>
         </div>
       </div>
       <div className="flex items-center gap-[30px]">
