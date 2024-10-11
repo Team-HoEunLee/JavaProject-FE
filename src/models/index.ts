@@ -9,7 +9,7 @@ export interface MainItemsDataType {
   title: string;
   info: string;
   icon: React.FC;
-  backColor: string
+  backColor: string;
 }
 
 export interface QuestionKeywordDataType {
@@ -34,4 +34,23 @@ export interface MainTableHeaderDataType {
 export interface RankingListDataType {
   name: string;
   score: number;
+}
+
+export interface ProblemExampleDummyDataType {
+  title: string;
+  number: number;
+  relatedField: Array<string>;
+  level: number;
+  solvePerson: number;
+  percentCorrect: number;
+  solveState: boolean;
+  problemValue: string;
+}
+
+export interface ProblemDataType {
+  relatedField: Array<string>;
+  level: number;
+  solvePerson: number;
+  percentCorrect: number;
+  solveState: boolean;
 }

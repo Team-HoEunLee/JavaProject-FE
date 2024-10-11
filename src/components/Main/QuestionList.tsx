@@ -2,22 +2,10 @@ import { useState, useRef, useEffect } from 'react';
 import { Checked } from '../../assets/Auth/index';
 import { QuestionListDataTypes } from '../../models/index';
 import MajorSubjectTag from '../Common/MajorSubjectTag';
-import { Zero, One, Two, Three, Four } from 'assets/Common';
-
-interface LevelIconsDataType {
-  [key: number]: JSX.Element;
-}
+import getLevelIcon from 'utils/getLevelIcon';
 
 const QuestionList = ({ checked, title, felid, level, avgScore }: QuestionListDataTypes) => {
-  const levelIcons: LevelIconsDataType = {
-    0: <Zero />,
-    1: <One />,
-    2: <Two />,
-    3: <Three />,
-    4: <Four />,
-  };
-
-  const levelIcon = levelIcons[level] || null;
+  const levelIcon = getLevelIcon(level);
   const felidLength = felid.length;
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [hiddenCount, setHiddenCount] = useState<number>(0);

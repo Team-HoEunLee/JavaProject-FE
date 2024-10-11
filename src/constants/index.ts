@@ -5,6 +5,7 @@ import {
   QuestionListDataTypes,
   MainTableHeaderDataType,
   RankingListDataType,
+  ProblemExampleDummyDataType,
 } from 'models';
 import { Box, Check, Lock, User } from '../assets/Auth/index';
 import { Bulb, HandShake, Map, Sprout } from '../assets/Main/index';
@@ -215,6 +216,21 @@ export const RankingListDummyValue: RankingListDataType[] = [
   {
     name: '어쩔',
     score: 10,
+  },
+];
+
+//문제 예시 더미값
+export const ProblemExampleDummy: ProblemExampleDummyDataType[] = [
+  {
+    title: '데이터 최적화',
+    number: 209345,
+    relatedField: ['백엔드', '데브옵스', '인공지능', '데이터베이스', '운영체제', '자료구조'],
+    level: 2,
+    solvePerson: 120,
+    percentCorrect: 56,
+    solveState: true,
+    problemValue:
+      '어떠한 데이터가 어떻게 처리되고 있는데 데이터 최적화를 해야한다. 어떤 방안. 또한 재미있는 그런데 이것 정말 웃긴. 참 특이한 이것은 정말 어려운😥 하지만 어떻게 해야하는지 모르겠는. 나는 이것에 대해 모르고 있는 하지만 나는 배우다. 아카데미를 다니는 것은 정말 힘들지만 웃긴. 나에게 원하는 것이 많지만 나는 그것을 하지 않음. 왜냐하면 숙제가 너무 많은 그래서 숙제를 끝내지 못하고 아카데미에 가선생님께 매일 혼난다. 😂 그것을 슬프지만 재밌는 내가 한국에 가고 싶어 라인을 요청한. 한국어 아카데미에서 배운 한국어는 매우 웃기다. 항상 한국어만 공부하면 좋을 거 같다. 지금은 잘 못하여 번역기의 도움을 받고 있다. 그래서 이것이 조금 이상할 수도 있는. 😂😅 하지만 나는 I love Korea 그래서 매일 문자를 보낸다.',
   },
 ];
 
