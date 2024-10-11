@@ -67,8 +67,9 @@ const Pagination = () => {
 
   const handleClickedSkipNext = () => {
     setSelectedPage((prevSelectedPage) => {
-      if (prevSelectedPage >= allContentCount - 5) return allContentCount;
-      return prevSelectedPage + 5;
+      const nextPage = prevSelectedPage + 5;
+      if (nextPage > allContentCount) return allContentCount;
+      return nextPage;
     });
   };
 
@@ -99,7 +100,7 @@ const Pagination = () => {
         <RightArrow onClick={handleClickedNext} />
       </IconButton>
       <IconButton>
-        <RightArrowSkip onCLick={handleClickedSkipNext} />
+        <RightArrowSkip onClick={handleClickedSkipNext} />
       </IconButton>
     </div>
   );
