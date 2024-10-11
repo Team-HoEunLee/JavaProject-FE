@@ -1,7 +1,12 @@
 import TextBox from 'components/Question/TextBox';
 import BarGraph from 'components/Question/BarGraph';
+import LevelSelectBox from 'components/Question/LevelSelectBox';
+import { useState } from 'react';
 
 const SolvedFeedback = () => {
+  const [clicked, setClicked] = useState<boolean>();
+  const voteDummy = [{ ratio: 20 }, { ratio: 30 }, { ratio: 0 }, { ratio: 0 }, { ratio: 50 }];
+
   return (
     <div className="w-full h-screen flex justify-center">
       <div className="w-[1302px] flex justify-between">
@@ -57,6 +62,37 @@ const SolvedFeedback = () => {
                 HTTPS는 개인 정보와 민감한 데이터가 오가는 웹사이트에서 필수적으로 사용되어야
                 합니다."
           />
+          <div className="flex flex-col gap-[12px]">
+            <div className="flex gap-[8px]">
+              <p className="text-semi20">난이도 투표</p>
+              <p className="text-semi20 text-main200">5</p>
+            </div>
+            <div className="py-[12px] px-[24px] border border-gray400 bg-main100">
+              <p className="text-medium14 text-gray900">
+                문제 풀이 완료 후 피드백을 제출할 수 있습니다
+              </p>
+            </div>
+            <div className="flex justify-between py-[24px] px-[12px]">
+              <div className="w-[510px] flex flex-col gap-[8px]">
+                <p className="text-semi16">투표 결과</p>
+                <div className="py-[40px] px-[36px] flex flex-col gap-[32px]">
+                  {voteDummy.map((value, index) => (
+                    <BarGraph key={index} level={index} ratio={value.ratio} />
+                  ))}
+                </div>
+              </div>
+              <div className="w-[400px] flex flex-col gap-[8px]">
+                <p className="text-semi16">난이도 선택</p>
+                <div className="flex flex-wrap py-[24px] px-[12px] gap-[8px]">
+                  {[1, 2, 3, 4, 5].map((index) => (
+                    <div key={index} onClick={() => setClicked(!clicked)}>
+                      <LevelSelectBox level={index - 1} clicked={clicked} />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div className="w-[280px] flex flex-col p-[20px] gap-[32px]">
           <div className="flex flex-col py-[4px] gap-[40px] border-b border-gray400">

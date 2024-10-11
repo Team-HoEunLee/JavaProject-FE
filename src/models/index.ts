@@ -9,7 +9,7 @@ export interface MainItemsDataType {
   title: string;
   info: string;
   icon: React.FC;
-  backColor: string
+  backColor: string;
 }
 
 export interface QuestionKeywordDataType {
