@@ -68,7 +68,7 @@ const UserMain = () => {
                 </div>
               ))}
             </div>
-            <div className="flex flex-col gap-[40px]">
+            <div className="flex flex-col gap-[55px]">
               <div className="flex flex-col gap-[8px]">
                 <div className="w-full flex justify-between">
                   <p className="text-medium16 text-gray900">

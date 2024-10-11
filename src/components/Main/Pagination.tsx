@@ -19,8 +19,7 @@ const IconButton: React.FC<IconButtonProps> = ({ children, isSelected, onClick }
         justify-center
         items-center
         rounded-[8px]
-      hover:bg-gray200
-        ${isSelected ? 'bg-blue100' : 'bg-white'}
+        ${isSelected ? 'bg-main200' : 'bg-white hover:bg-gray200'}
       `}
       onClick={onClick}
     >
@@ -87,7 +86,13 @@ const Pagination = () => {
           onClick={() => setSelectedPage(value)}
           isSelected={value === selectedPage}
         >
-          <p className={`${value === selectedPage ? 'text-white' : 'text-black'}`}>{value}</p>
+          <p
+            className={`
+            ${value === selectedPage ? 'text-white' : 'text-black'}
+            text-regular14`}
+          >
+            {value}
+          </p>
         </IconButton>
       ))}
       <IconButton>
