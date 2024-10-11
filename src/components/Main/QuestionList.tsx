@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import { Checked } from '../../assets/Auth/index';
 import { QuestionListDataTypes } from '../../models/index';
 import MajorSubjectTag from '../Common/MajorSubjectTag';
-import getLevelIcon from '../../utils/getLevelIcon';
+import getLevelIcon from 'utils/getLevelIcon';
 
 const QuestionList = ({ checked, title, felid, level, avgScore }: QuestionListDataTypes) => {
   const levelIcon = getLevelIcon(level);
