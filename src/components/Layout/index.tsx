@@ -3,7 +3,7 @@ import Header from 'components/Layout/Header';
 
 const Layout = () => {
   return (
-    <div className="">
+    <div className="flex flex-col gap-[32px]">
       <Header />
       <Outlet />
     </div>

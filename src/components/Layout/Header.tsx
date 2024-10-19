@@ -8,7 +8,7 @@ const Header = () => {
   const [isLogin, setIsLogin] = useState(true);
   const [isAdmin, setIsAdmin] = useState(false);
   return (
-    <div className="flex justify-center p-[12px]">
+    <div className="flex justify-center p-[12px] border-b border-gray200">
       <div className="w-[1302px] flex justify-between">
         <Logo />
         {!isLogin ? (
