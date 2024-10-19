@@ -5,3 +5,4 @@ export { ReactComponent as Sprout } from './Sprout.svg';
 export { ReactComponent as SearchIcon } from './Search.svg';
 export { ReactComponent as Reset } from './Reset.svg';
 export { ReactComponent as GoBack } from './GoBack.svg';
+export { ReactComponent as Profile } from './Profile.svg';
