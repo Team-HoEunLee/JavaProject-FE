@@ -1,6 +1,6 @@
 import { Logo } from '../../assets/Auth/index';
 import Input from '../../components/Auth/Input';
-import Button from '../../components/Auth/Button';
+import Button from 'components/Auth/Button';
 import { AuthLogin } from '../../constants/index';
 import { useNavigate } from 'react-router-dom';
 

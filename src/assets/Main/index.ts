@@ -9,3 +9,4 @@ export { ReactComponent as LeftArrow } from './LeftArrow.svg';
 export { ReactComponent as LeftArrowSkip } from './LeftArrowSkip.svg';
 export { ReactComponent as RightArrow } from './RightArrow.svg';
 export { ReactComponent as RightArrowSkip } from './RightArrowSkip.svg';
+export { ReactComponent as Profile } from './Profile.svg';
