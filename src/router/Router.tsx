@@ -5,6 +5,8 @@ import SignUpNext from '../page/Auth/SignUpNext';
 import Main from '../page/Main/UserMain';
 import QuestionSolving from 'page/Question/QuestionSolving';
 import SolvedFeedback from 'page/Question/SolvedFeedback';
+import AdminMain from 'page/Admin/Main';
+import Layout from 'components/Layout';
 
 const Router = () => {
   return (
@@ -13,9 +15,12 @@ const Router = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/signUp" element={<SignUp />} />
         <Route path="/signUpNext" element={<SignUpNext />} />
-        <Route path="/main" element={<Main />} />
-        <Route path="/solve" element={<QuestionSolving />} />
-        <Route path="/feedback" element={<SolvedFeedback />} />
+        <Route path="/" element={<Layout />}>
+          <Route path="/main" element={<Main />} />
+          <Route path="/solve" element={<QuestionSolving />} />
+          <Route path="/feedback" element={<SolvedFeedback />} />
+          <Route path="/adminMain" element={<AdminMain />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );
