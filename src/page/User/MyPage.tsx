@@ -2,13 +2,16 @@ import { Edit, Tier, Back } from '../../assets/User';
 import SolveList from 'components/User/SolveList';
 import ProblemTag from 'components/User/ProblemTag';
 import ProgressBar from 'components/User/ProgressBar';
+import Header from 'components/Layout/Header';
 
 const relatedField: string[] = ['백엔드', '데브옵스'];
 
 const MyPage = () => {
   return (
     <div className="w-full h-screen flex flex-col items-center">
-      <div className="w-full h-[9%] flex">Header</div>
+      <div className="w-full flex">
+        <Header />
+      </div>
       <div className="w-full h-[34%] flex relative">
         <Back />
       </div>
