@@ -18,9 +18,8 @@ const WriteQuestion = () => {
   };
 
   const handleDeleteSkill = (value: string) => {
-    console.log(detailSkill)
-    const index = detailSkill.indexOf(value);
-    detailSkill.splice(index, 1);
+    const newDetailSkill = detailSkill.filter((skill) => skill !== value);
+    setDetailSkill(newDetailSkill);
   };
 
   const handleClickSubmit = () => {
