@@ -12,7 +12,7 @@ const MyPage = () => {
       <div className="w-full h-[9%] flex">
         <Header />
       </div>
-      <div className="w-full h-[34%] flex relative">
+      <div className="w-[1920px] h-[375px] flex relativ ">
         <Back />
       </div>
       <div className="w-[72%] h-screen flex flex-row gap-[100px] inset-y-[20%] absolute">
