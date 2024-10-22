@@ -23,10 +23,8 @@ const UserMain = () => {
     const isExist = fields?.includes(value);
     if (isExist) {
       updateFields(value);
-      console.log(fields);
     } else {
       addFields(value);
-      console.log(fields);
     }
   };
 

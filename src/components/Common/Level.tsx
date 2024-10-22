@@ -14,8 +14,6 @@ const Level = () => {
       } else {
         addLevels(index);
       }
-    } else if (levels === '모든 난이도') {
-      addLevels(index);
     }
   };
 
