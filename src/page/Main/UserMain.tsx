@@ -11,28 +11,33 @@ import KeywordTag from 'components/Common/KeywordTag';
 import Level from '../../components/Common/Level';
 import QuestionList from 'components/Main/QuestionList';
 import RankingList from 'components/Main/RankingList';
-import { useCheckedList } from 'components/Hooks/useCheckedList';
-import { selectedFelidState, selectedSolveState } from '../../atom/SelectedCategory';
-import { useRecoilState } from 'recoil';
-import Pagination from 'components/Main/Pagination';
+import PageNation from '../../components/Main/Pagination';
+import { useFieldStore, useLevelStore, useSolveStore } from '../../stores/SelectedCategory';
 
 const UserMain = () => {
-  const { checkedList, handleChange, handleReset } = useCheckedList();
-  const [felidCheckedList, setFelidCheckedList] = useRecoilState(selectedFelidState);
-  const [solveCheckedList, setSolveCheckedList] = useRecoilState(selectedSolveState);
+  const { fields, addFields, updateFields, resetFields } = useFieldStore();
+  const { solves, updateSolves, resetSolves } = useSolveStore();
+  const { resetLevels } = useLevelStore();
 
-  const handelFelidChange = (value: string) => {
-    setFelidCheckedList((felidCheckedList) => {
-      const currentList = felidCheckedList ?? [];
-
-      return currentList.includes(value)
-        ? currentList.filter((item) => item !== value)
-        : [...currentList, value];
-    });
+  const handleChangeFields = (value: string) => {
+    const isExist = fields?.includes(value);
+    if (isExist) {
+      updateFields(value);
+      console.log(fields);
+    } else {
+      addFields(value);
+      console.log(fields);
+    }
   };
 
-  const handleSolveChange = (value: string) => {
-    setSolveCheckedList(solveCheckedList === value ? '모든 상태' : value);
+  const handleChangeSolve = (value: string) => {
+    updateSolves(value);
+  };
+
+  const handleClickReset = () => {
+    resetFields();
+    resetLevels();
+    resetSolves();
   };
 
   return (
@@ -53,13 +58,13 @@ const UserMain = () => {
                         text={keyword}
                         selected={
                           value.name === 'Solved'
-                            ? solveCheckedList === keyword
-                            : (felidCheckedList?.includes(keyword) ?? false)
+                            ? solves.includes(keyword)
+                            : fields?.includes(keyword)
                         }
                         onClick={() =>
                           value.name === 'Solved'
-                            ? handleSolveChange(keyword)
-                            : handelFelidChange(keyword)
+                            ? handleChangeSolve(keyword)
+                            : handleChangeFields(keyword)
                         }
                       />
                     ))}
@@ -74,7 +79,7 @@ const UserMain = () => {
                   <p className="text-medium16 text-gray900">
                     총 <span className="text-bold16 text-main200">100</span>개의 문제가 있습니다
                   </p>
-                  <div className="flex items-center gap-2" onClick={handleReset}>
+                  <div className="flex items-center gap-2" onClick={handleClickReset}>
                     <p className="text-medium14 text-gray900">초기화</p>
                     <Reset />
                   </div>
@@ -100,7 +105,7 @@ const UserMain = () => {
                 </div>
               </div>
               <div className="w-full flex justify-center">
-                <Pagination />
+                <PageNation />
               </div>
             </div>
           </div>
