@@ -9,7 +9,7 @@ const relatedField: string[] = ['백엔드', '데브옵스'];
 const MyPage = () => {
   return (
     <div className="w-full h-screen flex flex-col items-center">
-      <div className="w-full flex">
+      <div className="w-full h-[9%] flex">
         <Header />
       </div>
       <div className="w-full h-[34%] flex relative">
