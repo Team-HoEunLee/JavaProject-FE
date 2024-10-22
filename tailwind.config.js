@@ -26,6 +26,7 @@ module.exports = {
       purple300: '#596DFB',
       purple200: '#6B7AF7',
       purple100: '#D9DAFF',
+      purple50: '#EFF1FE',
       pointBlue: '#00AEE0',
       blue500: '#2E72B1',
       blue400: '#4480B9',
