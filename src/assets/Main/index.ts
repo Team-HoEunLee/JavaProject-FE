@@ -5,3 +5,8 @@ export { ReactComponent as Sprout } from './Sprout.svg';
 export { ReactComponent as SearchIcon } from './Search.svg';
 export { ReactComponent as Reset } from './Reset.svg';
 export { ReactComponent as GoBack } from './GoBack.svg';
+export { ReactComponent as LeftArrow } from './LeftArrow.svg';
+export { ReactComponent as LeftArrowSkip } from './LeftArrowSkip.svg';
+export { ReactComponent as RightArrow } from './RightArrow.svg';
+export { ReactComponent as RightArrowSkip } from './RightArrowSkip.svg';
+export { ReactComponent as Profile } from './Profile.svg';

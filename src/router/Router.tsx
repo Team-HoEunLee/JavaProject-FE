@@ -6,6 +6,7 @@ import Main from '../page/Main/UserMain';
 import QuestionSolving from 'page/Question/QuestionSolving';
 import SolvedFeedback from 'page/Question/SolvedFeedback';
 import WriteQuestion from 'page/Admin/WriteQuestion';
+import Layout from 'components/Layout';
 
 const Router = () => {
   return (
@@ -18,6 +19,11 @@ const Router = () => {
         <Route path="/solve" element={<QuestionSolving />} />
         <Route path="/feedback" element={<SolvedFeedback />} />
         <Route path="/writeQuestion" element={<WriteQuestion />} />
+        <Route path="/" element={<Layout />}>
+          <Route path="/main" element={<Main />} />
+          <Route path="/solve" element={<QuestionSolving />} />
+          <Route path="/feedback" element={<SolvedFeedback />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );
