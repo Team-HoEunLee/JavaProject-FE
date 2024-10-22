@@ -2,8 +2,27 @@ import SubmitButton from 'components/Common/SubmitButton';
 import KeywordTag from 'components/Common/KeywordTag';
 import { Major } from '../../constants';
 import getLevelIcon from 'utils/getLevelIcon';
+import { useState } from 'react';
 
 const WriteQuestion = () => {
+  const [detailSkill, setDetailSkill] = useState<Array<string>>([]);
+  const [inputValue, setInputValue] = useState<string>('');
+
+  const handleAddSkill = () => {
+    if (inputValue === '' || detailSkill.includes(inputValue)) {
+      alert('입력할 수 없습니다.');
+    } else {
+      setDetailSkill((prev) => [...prev, inputValue]);
+      setInputValue('');
+    }
+  };
+
+  const handleDeleteSkill = (value: string) => {
+    console.log(detailSkill)
+    const index = detailSkill.indexOf(value);
+    detailSkill.splice(index, 1);
+  };
+
   const handleClickSubmit = () => {
     console.log('문제를 등록하였습니다');
   };
@@ -28,12 +47,22 @@ const WriteQuestion = () => {
                   <KeywordTag key={index} text={value} />
                 ))}
               </div>
+              <div className="flex flex-wrap gap-[8px]">
+                {detailSkill.map((value, index) => (
+                  <KeywordTag key={index} text={value} onClick={() => handleDeleteSkill(value)} />
+                ))}
+              </div>
               <div className="flex justify-between gap-[20px]">
                 <input
                   className="flex-1 border border-gray300 py-[8px] px-[12px] rounded-[20px] placeholder:text-regular14"
                   placeholder="이 외 세부 기술스택을 추가해보세요"
+                  onChange={(e) => setInputValue(e.target.value)}
+                  value={inputValue}
                 />
-                <button className="w-[55px] px-[8px] py-[4px] rounded-[20px] bg-main300">
+                <button
+                  className="w-[55px] px-[8px] py-[4px] rounded-[20px] bg-main300"
+                  onClick={handleAddSkill}
+                >
                   <p className="text-white">추가</p>
                 </button>
               </div>
