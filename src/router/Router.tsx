@@ -16,15 +16,12 @@ const Router = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/signUp" element={<SignUp />} />
         <Route path="/signUpNext" element={<SignUpNext />} />
-        <Route path="/main" element={<Main />} />
-        <Route path="/solve" element={<QuestionSolving />} />
-        <Route path="/feedback" element={<SolvedFeedback />} />
-        <Route path="/writeQuestion" element={<WriteQuestion />} />
         <Route path="/user" element={<MyPage />} />
         <Route path="/" element={<Layout />}>
           <Route path="/main" element={<Main />} />
           <Route path="/solve" element={<QuestionSolving />} />
           <Route path="/feedback" element={<SolvedFeedback />} />
+          <Route path="/writeQuestion" element={<WriteQuestion />} />
         </Route>
       </Routes>
     </BrowserRouter>
