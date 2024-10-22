@@ -7,6 +7,8 @@ import { useState } from 'react';
 const WriteQuestion = () => {
   const [detailSkill, setDetailSkill] = useState<Array<string>>([]);
   const [inputValue, setInputValue] = useState<string>('');
+  const [title, setTitle] = useState<string>('');
+  const [question, setQuestion] = useState<string>('');
 
   const handleAddSkill = () => {
     if (inputValue === '' || detailSkill.includes(inputValue)) {
@@ -83,10 +85,12 @@ const WriteQuestion = () => {
             <input
               placeholder="제목을 작성해주세요"
               className="w-full border-b border-blue100 py-[8px]"
+              onChange={(e) => setTitle(e.target.value)}
             />
             <textarea
               placeholder="문제를 작성해주세요"
               className="h-full px-[12px] py-[8px] bg-white border border-blue100 rounded-[8px] resize-none outline-none"
+              onChange={(e) => setQuestion(e.target.value)}
             />
           </div>
         </div>
