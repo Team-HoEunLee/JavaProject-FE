@@ -7,13 +7,20 @@ import Options from 'components/Auth/Options';
 import { AuthSignUpNext, Major } from '../../constants/index';
 import { useNavigate } from 'react-router-dom';
 import { useCheckedList } from 'components/Hooks/useCheckedList';
+import { useAuthStore } from 'stores/useAuthStore';
 
 const SignUpNext = () => {
   const navigate = useNavigate();
   const [openOption, setOpenOption] = useState<boolean>(false);
   const modalRef = useRef<HTMLDivElement>(null);
 
-  const { checkedList, handleChange, handleReset } = useCheckedList();
+  const { form, setForm } = useAuthStore();
+  const { checkedList, handleChange: checkListHandleChange, handleReset } = useCheckedList();
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setForm(name, value);
+  };
 
   const modalOutSideClick = (e: any) => {
     if (modalRef.current === e.target) {
@@ -24,6 +31,11 @@ const SignUpNext = () => {
   useEffect(() => {
     console.log(checkedList);
   }, [checkedList]);
+
+  const handleLogin = () => {
+    console.log(form);
+    navigate('/login');
+  };
 
   return (
     <div
@@ -41,8 +53,10 @@ const SignUpNext = () => {
             <Input
               key={index}
               name={value.name}
+              value={form[value.name] || ''}
               icon={value.icon}
               placeholder={value.placeholder}
+              onChange={handleChange}
             />
           ))}
           <div
@@ -60,7 +74,7 @@ const SignUpNext = () => {
                   key={index}
                   text={value}
                   selected={checkedList.includes(value)}
-                  onClick={() => handleChange(value)}
+                  onClick={() => checkListHandleChange(value)}
                 />
               ))}
             </div>
@@ -74,7 +88,7 @@ const SignUpNext = () => {
           </div>
         </div>
         <div className="flex flex-col gap-4">
-          <Button text="회원가입" onClick={() => navigate('/login')} />
+          <Button text="회원가입" onClick={handleLogin} />
           <a href="/login" className="flex justify-center gap-1">
             <p className="text-medium12 text-gray500">이미 계정이 있으신가요?</p>
             <p className="text-medium12">로그인</p>

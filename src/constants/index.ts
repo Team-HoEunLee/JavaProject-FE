@@ -12,7 +12,7 @@ import { Bulb, HandShake, Map, Sprout } from '../assets/Main/index';
 
 export const AuthLogin: AuthDataType[] = [
   {
-    name: 'userId',
+    name: 'accountId',
     placeholder: '아이디를 입력해주세요',
     icon: Box,
   },
@@ -25,7 +25,7 @@ export const AuthLogin: AuthDataType[] = [
 
 export const AuthSignUp: AuthDataType[] = [
   {
-    name: 'userId',
+    name: 'accountId',
     placeholder: '아이디를 입력해주세요',
     icon: Box,
   },
@@ -43,12 +43,12 @@ export const AuthSignUp: AuthDataType[] = [
 
 export const AuthSignUpNext: AuthDataType[] = [
   {
-    name: 'nickName',
+    name: 'name',
     placeholder: '닉네임을 입력해주세요',
     icon: User,
   },
   {
-    name: 'introduce',
+    name: 'introduction',
     placeholder: '자기소개를 입력해주세요 (선택)',
     icon: Check,
   },
