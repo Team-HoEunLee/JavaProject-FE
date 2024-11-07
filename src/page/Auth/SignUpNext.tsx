@@ -15,7 +15,7 @@ const SignUpNext = () => {
   const modalRef = useRef<HTMLDivElement>(null);
 
   const { form, changeForm } = useAuthStore();
-  const { checkedList, handleChange: checkListHandleChange, handleReset } = useCheckedList();
+  const { checkedList, handleChange: checkListHandleChange } = useCheckedList();
   const { account, password, name, introduction } = form;
 
   const modalOutSideClick = (e: any) => {
@@ -23,10 +23,6 @@ const SignUpNext = () => {
       setOpenOption(false);
     }
   };
-
-  useEffect(() => {
-    console.log(checkedList);
-  }, [checkedList]);
 
   const data = {
     account,
@@ -37,6 +33,7 @@ const SignUpNext = () => {
   };
 
   const handleLogin = () => {
+    console.log(data);
     navigate('/login');
   };
 
