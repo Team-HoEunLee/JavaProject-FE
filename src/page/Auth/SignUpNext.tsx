@@ -14,9 +14,9 @@ const SignUpNext = () => {
   const [openOption, setOpenOption] = useState<boolean>(false);
   const modalRef = useRef<HTMLDivElement>(null);
 
-  const { form, changeForm } = useAuthStore();
+  const { form, changeForm, resetForm } = useAuthStore();
   const { checkedList, handleChange: checkListHandleChange } = useCheckedList();
-  const { account, password, name, introduction } = form;
+  const { accountId, password, name, introduction } = form;
 
   const modalOutSideClick = (e: any) => {
     if (modalRef.current === e.target) {
@@ -25,7 +25,7 @@ const SignUpNext = () => {
   };
 
   const data = {
-    account,
+    accountId,
     password,
     name,
     introduction,
@@ -34,7 +34,7 @@ const SignUpNext = () => {
 
   const handleLogin = () => {
     console.log(data);
-    navigate('/login');
+    resetForm();
   };
 
   return (
