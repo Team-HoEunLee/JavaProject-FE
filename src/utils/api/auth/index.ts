@@ -1,8 +1,9 @@
-import instance from "utils/api/axios";
-import { useMutation } from "@tanstack/react-query";
-import { TokenResponse, SignupRequest, LoginRequest } from "models/auth";
+import instance from 'utils/api/axios';
+import { useMutation } from '@tanstack/react-query';
+import { TokenResponse, SignupRequest, LoginRequest } from 'models/auth';
+import { setToken } from 'utils/api/function/TokenManage';
 
-const path = "/users";
+const path = '/users';
 
 export const signUp = () => {
   return useMutation<TokenResponse, Error, SignupRequest>({
@@ -11,12 +12,22 @@ export const signUp = () => {
       return response.data;
     },
     onError: (error: any) => {
-      console.error("회원가입 에러", error?.response?.data);
-    }
+      console.error('회원가입 에러', error?.response?.data);
+    },
   });
 };
 
-export const login = async (data: LoginRequest) => {
-  const response = await instance.post<TokenResponse>(`${path}/login`, data);
-  return response.data;
+export const login = async () => {
+  return useMutation<TokenResponse, Error, LoginRequest>({
+    mutationFn: async (data: LoginRequest) => {
+      const response = await instance.post<TokenResponse>(`${path}/login`, data);
+      return response.data;
+    },
+    onSuccess: (data) => {
+      setToken(data.accessToken, data.refreshToken);
+    },
+    onError: (error: any) => {
+      console.error('로그인 에러', error?.response?.data);
+    },
+  });
 };
