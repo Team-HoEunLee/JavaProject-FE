@@ -8,20 +8,15 @@ import { useAuthStore } from 'stores/useAuthStore';
 
 const SignUp = () => {
   const navigate = useNavigate();
-  const { form, setForm } = useAuthStore();
+  const { form, changeForm } = useAuthStore();
   const [error, setError] = useState<boolean>(false);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setForm(name, value);
-  };
 
   const handleClickNext = () => {
     if (form.password !== form.passwordCheck) {
       setError(true);
+    } else {
+      navigate('/signUpNext');
     }
-    navigate('/signUpNext');
-    console.log(form);
   };
 
   return (
@@ -39,7 +34,7 @@ const SignUp = () => {
               value={form[value.name] || ''}
               icon={value.icon}
               placeholder={value.placeholder}
-              onChange={handleChange}
+              onChange={changeForm}
             />
           ))}
         </div>

@@ -14,13 +14,9 @@ const SignUpNext = () => {
   const [openOption, setOpenOption] = useState<boolean>(false);
   const modalRef = useRef<HTMLDivElement>(null);
 
-  const { form, setForm } = useAuthStore();
+  const { form, changeForm } = useAuthStore();
   const { checkedList, handleChange: checkListHandleChange, handleReset } = useCheckedList();
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setForm(name, value);
-  };
+  const { account, password, name, introduction } = form;
 
   const modalOutSideClick = (e: any) => {
     if (modalRef.current === e.target) {
@@ -32,8 +28,15 @@ const SignUpNext = () => {
     console.log(checkedList);
   }, [checkedList]);
 
+  const data = {
+    account,
+    password,
+    name,
+    introduction,
+    areaId: 0,
+  };
+
   const handleLogin = () => {
-    console.log(form);
     navigate('/login');
   };
 
@@ -56,7 +59,7 @@ const SignUpNext = () => {
               value={form[value.name] || ''}
               icon={value.icon}
               placeholder={value.placeholder}
-              onChange={handleChange}
+              onChange={changeForm}
             />
           ))}
           <div
