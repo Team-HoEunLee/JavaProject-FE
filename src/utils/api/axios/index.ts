@@ -39,7 +39,7 @@ instance.interceptors.response.use(
       if(status === 401) {
         const refreshToken = getToken().refreshToken
         try {
-          await axios.get(`http://${BASEURL}/auth/refresh`,{
+          await axios.get(`http://${BASEURL}/users/reissue`,{
             headers: {
               "authorization": `Bearer ${refreshToken}`
             }
