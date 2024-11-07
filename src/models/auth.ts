@@ -11,3 +11,8 @@ export interface SignupRequest {
   introduction: string,
   areaId: number
 }
+
+export interface LoginRequest {
+  accountId: string,
+  password: string
+}
