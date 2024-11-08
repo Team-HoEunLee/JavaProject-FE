@@ -5,7 +5,7 @@ import { setToken } from 'utils/api/function/TokenManage';
 
 const path = '/users';
 
-export const signUp = () => {
+export const useSignUp = () => {
   return useMutation<TokenResponse, Error, SignupRequest>({
     mutationFn: async (data: SignupRequest) => {
       const response = await instance.post<TokenResponse>(`${path}/signup`, data);

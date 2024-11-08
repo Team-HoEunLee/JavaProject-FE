@@ -4,17 +4,20 @@ import Input from '../../components/Auth/Input';
 import Button from '../../components/Auth/Button';
 import MajorSubjectTag from 'components/Common/MajorSubjectTag';
 import Options from 'components/Auth/Options';
-import { AuthSignUpNext, Major } from '../../constants/index';
+import { AuthSignUpNext, UserMajorValues } from '../../constants/index';
 import { useNavigate } from 'react-router-dom';
 import { useCheckedList } from 'components/Hooks/useCheckedList';
-import { useAuthStore } from 'stores/useAuthStore';
+import { InputFormStore } from 'stores/InputFormStore';
+import { useSignUp } from 'utils/api/auth';
+import { SignupRequest } from 'models/auth';
 
 const SignUpNext = () => {
   const navigate = useNavigate();
   const [openOption, setOpenOption] = useState<boolean>(false);
   const modalRef = useRef<HTMLDivElement>(null);
 
-  const { form, changeForm, resetForm } = useAuthStore();
+  const { mutate } = useSignUp();
+  const { form, changeForm, resetForm } = InputFormStore();
   const { checkedList, handleChange: checkListHandleChange } = useCheckedList();
   const { accountId, password, name, introduction } = form;
 
@@ -24,17 +27,21 @@ const SignUpNext = () => {
     }
   };
 
-  const data = {
-    accountId,
-    password,
-    name,
-    introduction,
-    areaId: 0,
-  };
-
-  const handleLogin = () => {
-    console.log(data);
-    resetForm();
+  const handleSignUp = () => {
+    const data: SignupRequest = {
+      accountId,
+      password,
+      name,
+      introduction,
+      areaId: checkedList,
+    };
+    try {
+      mutate(data);
+      navigate('/login');
+      resetForm();
+    } catch (error) {
+      console.log(data);
+    }
   };
 
   return (
@@ -88,7 +95,7 @@ const SignUpNext = () => {
           </div>
         </div>
         <div className="flex flex-col gap-4">
-          <Button text="회원가입" onClick={handleLogin} />
+          <Button text="회원가입" onClick={handleSignUp} />
           <a href="/login" className="flex justify-center gap-1">
             <p className="text-medium12 text-gray500">이미 계정이 있으신가요?</p>
             <p className="text-medium12">로그인</p>

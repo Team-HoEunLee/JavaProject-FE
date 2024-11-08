@@ -5,11 +5,10 @@ export interface TokenResponse {
 
 export interface SignupRequest {
   accountId: string;
-  email: string;
   password: string;
   name: string;
   introduction: string;
-  areaId: number;
+  areaId: Array<string>;
 }
 
 export interface LoginRequest {
