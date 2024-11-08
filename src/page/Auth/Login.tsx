@@ -4,7 +4,7 @@ import Button from 'components/Auth/Button';
 import { AuthLogin } from '../../constants/index';
 import { useNavigate } from 'react-router-dom';
 import { InputFormStore } from 'stores/InputFormStore';
-import { login } from 'utils/api/auth';
+import { useLogin } from 'utils/api/auth';
 import { setToken } from 'utils/api/function/TokenManage';
 
 const Login = () => {
@@ -16,7 +16,7 @@ const Login = () => {
       account: form.account,
       password: form.password,
     };
-    const test = login();
+    const test = useLogin();
     console.log(test);
   };
 
