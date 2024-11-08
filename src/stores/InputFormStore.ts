@@ -9,7 +9,7 @@ interface FormType {
   changeForm: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-export const useAuthStore = create<FormType>((set) => ({
+export const InputFormStore = create<FormType>((set) => ({
   form: {},
   setForm: (field, value) =>
     set((state) => ({

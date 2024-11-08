@@ -4,11 +4,11 @@ import Input from '../../components/Auth/Input';
 import Button from '../../components/Auth/Button';
 import { AuthSignUp } from '../../constants/index';
 import { useNavigate } from 'react-router-dom';
-import { useAuthStore } from 'stores/useAuthStore';
+import { InputFormStore } from 'stores/InputFormStore';
 
 const SignUp = () => {
   const navigate = useNavigate();
-  const { form, changeForm } = useAuthStore();
+  const { form, changeForm } = InputFormStore();
   const [error, setError] = useState<boolean>(false);
 
   const handleClickNext = () => {
