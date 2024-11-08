@@ -69,7 +69,7 @@ const SignUpNext = () => {
           </div>
           {openOption ? (
             <div className="w-44 h-48 absolute right-5 bottom-16 bg-white rounded-md border border-gray400 overflow-scroll">
-              {Major.map((value, index) => (
+              {UserMajorValues.map((value, index) => (
                 <Options
                   key={index}
                   text={value}
