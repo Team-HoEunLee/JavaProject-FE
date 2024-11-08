@@ -1,5 +1,5 @@
 import instance from 'utils/api/axios';
-import { useMutation } from '@tanstack/react-query';
+import { useMutation, useQuery } from '@tanstack/react-query';
 import { TokenResponse, SignupRequest, LoginRequest } from 'models/auth';
 import { setToken } from 'utils/api/function/TokenManage';
 
@@ -17,7 +17,7 @@ export const useSignUp = () => {
   });
 };
 
-export const login = async () => {
+export const useLogin = async () => {
   return useMutation<TokenResponse, Error, LoginRequest>({
     mutationFn: async (data: LoginRequest) => {
       const response = await instance.post<TokenResponse>(`${path}/login`, data);
@@ -28,6 +28,16 @@ export const login = async () => {
     },
     onError: (error: any) => {
       console.error('로그인 에러', error?.response?.data);
+    },
+  });
+};
+
+export const useInfo = () => {
+  return useQuery({
+    queryKey: ['userInfo'],
+    queryFn: async () => {
+      const { data } = await instance.get(`${path}/info`);
+      return data.response;
     },
   });
 };
