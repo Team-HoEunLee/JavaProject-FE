@@ -20,6 +20,12 @@ interface SolveType {
   resetSolves: () => void;
 }
 
+interface SearchType {
+  search: string;
+  handleSearch: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  resetSearch: () => void;
+}
+
 export const useFieldStore = create<FieldType>((set) => ({
   fields: [],
   addFields: (selected: string) =>
@@ -50,4 +56,13 @@ export const useSolveStore = create<SolveType>((set) => ({
   solves: '모든 상태',
   updateSolves: (selected: string) => set({ solves: selected }),
   resetSolves: () => set({ solves: '모든 상태' }),
+}));
+
+export const useSearchStore = create<SearchType>((set) => ({
+  search: '',
+  handleSearch: (e) => {
+    const keyword = e.target.value;
+    set({ search: keyword });
+  },
+  resetSearch: () => set({ search: '' }),
 }));
