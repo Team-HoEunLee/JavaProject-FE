@@ -8,7 +8,7 @@ export interface SignupRequest {
   password: string;
   name: string;
   introduction: string;
-  areaId: Array<string>;
+  areaId: Array<number>;
 }
 
 export interface LoginRequest {

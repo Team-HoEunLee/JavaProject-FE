@@ -1,9 +1,9 @@
 import { useState } from 'react';
 
 export function useCheckedList() {
-  const [checkedList, setCheckedList] = useState<string[]>([]);
+  const [checkedList, setCheckedList] = useState<number[]>([]);
 
-  const handleChange = (value: string) => {
+  const handleChange = (value: number) => {
     setCheckedList((checkedList) => {
       if (checkedList.includes(value)) {
         return checkedList.filter((item) => item !== value);
