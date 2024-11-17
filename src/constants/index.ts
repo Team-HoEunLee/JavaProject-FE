@@ -12,7 +12,7 @@ import { Bulb, HandShake, Map, Sprout } from '../assets/Main/index';
 
 export const AuthLogin: AuthDataType[] = [
   {
-    name: 'userId',
+    name: 'accountId',
     placeholder: '아이디를 입력해주세요',
     icon: Box,
   },
@@ -25,7 +25,7 @@ export const AuthLogin: AuthDataType[] = [
 
 export const AuthSignUp: AuthDataType[] = [
   {
-    name: 'userId',
+    name: 'accountId',
     placeholder: '아이디를 입력해주세요',
     icon: Box,
   },
@@ -43,12 +43,12 @@ export const AuthSignUp: AuthDataType[] = [
 
 export const AuthSignUpNext: AuthDataType[] = [
   {
-    name: 'nickName',
+    name: 'name',
     placeholder: '닉네임을 입력해주세요',
     icon: User,
   },
   {
-    name: 'introduce',
+    name: 'introduction',
     placeholder: '자기소개를 입력해주세요 (선택)',
     icon: Check,
   },
@@ -311,17 +311,126 @@ export const ProblemExampleDummy: ProblemExampleDummyDataType[] = [
   },
 ];
 
-export const Major = [
+export type Skill =
+  | 'SpringBoot'
+  | 'SpringSecurity'
+  | 'SpringBatch'
+  | 'SpringDataJpa'
+  | 'React'
+  | 'ReactNative'
+  | 'ReactHook'
+  | 'ReactRedux'
+  | 'Node.js'
+  | 'JavaScript'
+  | 'TypeScript'
+  | 'TypeORM'
+  | 'Express'
+  | 'Nest.js'
+  | 'Sequelize'
+  | 'Docker'
+  | 'Swift'
+  | 'Objective-C'
+  | 'Java'
+  | 'HTML'
+  | 'CSS'
+  | 'Vue.js'
+  | 'styled-components'
+  | 'Nuxt'
+  | 'webpack'
+  | 'emotion'
+  | 'zustand'
+  | 'redux'
+  | 'recoil'
+  | 'jotai'
+  | 'Python'
+  | 'C'
+  | 'C++'
+  | 'C#'
+  | '.NET'
+  | 'Unity 엔진'
+  | 'Spring'
+  | 'Postgresql'
+  | 'MySQL'
+  | 'MongoDB'
+  | 'AWS'
+  | 'Kotlin'
+  | 'Go'
+  | 'SCSS'
+  | 'Figma'
+  | 'AWS lambda'
+  | 'AWS RDS'
+  | 'Linux'
+  | 'Next.js'
+  | 'Vite'
+  | 'Babel'
+  | 'MFC'
+  | 'RESTful API'
+  | 'Flutter'
+  | 'Dart'
+  | 'Firebase'
+  | 'Three.js'
+  | 'FastAPI'
+  | 'GraphQL'
+  | 'Electron'
+  | 'Redis'
+  | 'Terraform'
+  | 'minSDK'
+  | 'MariaDB'
+  | 'Apache Tomcat'
+  | 'Git'
+  | 'Jsp'
+  | 'Kubernetes'
+  | 'Django'
+  | 'Jquery'
+  | 'JPA'
+  | 'CloudFront'
+  | 'Prisma'
+  | 'PyTorch'
+  | 'k8s'
+  | 'pulumi'
+  | 'Tensorflow'
+  | 'OpenCV'
+  | 'Rust'
+  | 'dynamodb'
+  | 'Github';
+
+export type UserMajor =
+  | '백엔드'
+  | '프론트엔드'
+  | '풀스택'
+  | '데브옵스'
+  | 'iOS'
+  | '안드로이드'
+  | '플러터'
+  | 'React Native'
+  | '임베디드'
+  | '시스템 프로그래밍'
+  | 'NFC'
+  | 'AI'
+  | '블록체인'
+  | '보안'
+  | '게임 개발'
+  | 'PM'
+  | 'QA'
+  | 'MLOps';
+
+export const UserMajorValues: UserMajor[] = [
   '백엔드',
   '프론트엔드',
-  '아이오에스',
+  '풀스택',
+  '데브옵스',
+  'iOS',
   '안드로이드',
   '플러터',
-  '게임',
-  '데브옵스',
-  '보안',
-  '인공지능',
-  '디자인',
+  'React Native',
   '임베디드',
+  '시스템 프로그래밍',
+  'NFC',
+  'AI',
+  '블록체인',
+  '보안',
+  '게임 개발',
   'PM',
+  'QA',
+  'MLOps',
 ];

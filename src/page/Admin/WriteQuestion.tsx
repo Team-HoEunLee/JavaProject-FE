@@ -1,6 +1,6 @@
 import SubmitButton from 'components/Common/SubmitButton';
 import KeywordTag from 'components/Common/KeywordTag';
-import { Major } from '../../constants';
+import { UserMajorValues } from '../../constants';
 import getLevelIcon from 'utils/getLevelIcon';
 import { useState } from 'react';
 
@@ -44,7 +44,7 @@ const WriteQuestion = () => {
             <div className="flex flex-col gap-[20px] py-[20px] px-[16px] border border-gray200 rounded-[8px] bg-gray100">
               <p className="text-medium14">카테고리 및 분야</p>
               <div className="flex flex-wrap gap-[8px]">
-                {Major.map((value, index) => (
+                {UserMajorValues.map((value, index) => (
                   <KeywordTag key={index} text={value} />
                 ))}
               </div>

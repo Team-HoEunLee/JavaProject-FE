@@ -1,19 +1,25 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import { Logo, Bag, ArrowDown } from '../../assets/Auth/index';
 import Input from '../../components/Auth/Input';
 import Button from '../../components/Auth/Button';
 import MajorSubjectTag from 'components/Common/MajorSubjectTag';
 import Options from 'components/Auth/Options';
-import { AuthSignUpNext, Major } from '../../constants/index';
+import { AuthSignUpNext, UserMajorValues } from '../../constants/index';
 import { useNavigate } from 'react-router-dom';
 import { useCheckedList } from 'components/Hooks/useCheckedList';
+import { InputFormStore } from 'stores/InputFormStore';
+import { useSignUp } from 'utils/api/auth';
+import { SignupRequest } from 'models/auth';
 
 const SignUpNext = () => {
   const navigate = useNavigate();
   const [openOption, setOpenOption] = useState<boolean>(false);
   const modalRef = useRef<HTMLDivElement>(null);
 
-  const { checkedList, handleChange, handleReset } = useCheckedList();
+  const { mutate } = useSignUp();
+  const { form, changeForm, resetForm } = InputFormStore();
+  const { checkedList, handleChange: checkListHandleChange } = useCheckedList();
+  const { accountId, password, name, introduction } = form;
 
   const modalOutSideClick = (e: any) => {
     if (modalRef.current === e.target) {
@@ -21,9 +27,22 @@ const SignUpNext = () => {
     }
   };
 
-  useEffect(() => {
-    console.log(checkedList);
-  }, [checkedList]);
+  const handleSignUp = () => {
+    const data: SignupRequest = {
+      accountId,
+      password,
+      name,
+      introduction,
+      areaId: checkedList,
+    };
+    try {
+      mutate(data);
+      navigate('/login');
+      resetForm();
+    } catch (error) {
+      console.log(data);
+    }
+  };
 
   return (
     <div
@@ -41,8 +60,10 @@ const SignUpNext = () => {
             <Input
               key={index}
               name={value.name}
+              value={form[value.name] || ''}
               icon={value.icon}
               placeholder={value.placeholder}
+              onChange={changeForm}
             />
           ))}
           <div
@@ -55,12 +76,12 @@ const SignUpNext = () => {
           </div>
           {openOption ? (
             <div className="w-44 h-48 absolute right-5 bottom-16 bg-white rounded-md border border-gray400 overflow-scroll">
-              {Major.map((value, index) => (
+              {UserMajorValues.map((value, index) => (
                 <Options
                   key={index}
                   text={value}
                   selected={checkedList.includes(value)}
-                  onClick={() => handleChange(value)}
+                  onClick={() => checkListHandleChange(value)}
                 />
               ))}
             </div>
@@ -74,7 +95,7 @@ const SignUpNext = () => {
           </div>
         </div>
         <div className="flex flex-col gap-4">
-          <Button text="회원가입" onClick={() => navigate('/login')} />
+          <Button text="회원가입" onClick={handleSignUp} />
           <a href="/login" className="flex justify-center gap-1">
             <p className="text-medium12 text-gray500">이미 계정이 있으신가요?</p>
             <p className="text-medium12">로그인</p>

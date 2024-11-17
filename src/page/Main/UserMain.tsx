@@ -12,12 +12,18 @@ import Level from '../../components/Common/Level';
 import QuestionList from 'components/Main/QuestionList';
 import RankingList from 'components/Main/RankingList';
 import PageNation from '../../components/Main/Pagination';
-import { useFieldStore, useLevelStore, useSolveStore } from '../../stores/SelectedCategory';
+import {
+  useFieldStore,
+  useLevelStore,
+  useSearchStore,
+  useSolveStore,
+} from '../../stores/SelectedCategory';
 
 const UserMain = () => {
   const { fields, addFields, updateFields, resetFields } = useFieldStore();
   const { solves, updateSolves, resetSolves } = useSolveStore();
-  const { resetLevels } = useLevelStore();
+  const { levels, resetLevels } = useLevelStore();
+  const { search } = useSearchStore();
 
   const handleChangeFields = (value: string) => {
     const isExist = fields?.includes(value);
@@ -36,6 +42,15 @@ const UserMain = () => {
     resetFields();
     resetLevels();
     resetSolves();
+  };
+
+  const handleSearchQuestion = () => {
+    const data = {
+      title: search,
+      area: fields,
+      level: levels,
+      is_solved: solves,
+    };
   };
 
   return (

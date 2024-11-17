@@ -1,7 +1,7 @@
-import axios, { AxiosError } from "axios"
-import { getToken, setToken } from "../function/TokenManage"
+import axios, { AxiosError } from 'axios';
+import { getToken, setToken } from '../function/TokenManage';
 
-const BASEURL = process.env.REACT_APP_BASE_URL
+const BASEURL = process.env.REACT_APP_BASE_URL;
 
 export const instance = axios.create({
   baseURL: BASEURL,
@@ -10,54 +10,55 @@ export const instance = axios.create({
 
 export const refreshInstance = axios.create({
   baseURL: BASEURL,
-  timeout: 10000
-})
+  timeout: 10000,
+});
 
 instance.interceptors.request.use(
-  async function(config) {
-    const { accessToken } = getToken()
+  async function (config) {
+    const { accessToken } = getToken();
 
-    if(accessToken) {
-      config.headers["authorization"] = `Bearer ${accessToken}`
+    if (accessToken) {
+      config.headers['authorization'] = `Bearer ${accessToken}`;
     }
-    return config
+    return config;
   },
   function (error: AxiosError) {
-    console.error("Request error:", error);
+    console.error('Request error:', error);
     return Promise.reject(error);
-  }
-)
+  },
+);
 
 instance.interceptors.response.use(
   function (response) {
-    return response
+    return response;
   },
-  async function(error: AxiosError) {
-    if(axios.isAxiosError(error) && error.response) {
-      const { status } = error.response
-      
-      if(status === 401) {
-        const refreshToken = getToken().refreshToken
+  async function (error: AxiosError) {
+    if (axios.isAxiosError(error) && error.response) {
+      const { status } = error.response;
+
+      if (status === 401) {
+        const refreshToken = getToken().refreshToken;
         try {
-          await axios.get(`http://${BASEURL}/auth/refresh`,{
-            headers: {
-              "authorization": `Bearer ${refreshToken}`
-            }
-          })
-          .then((response) => {
-            const data = response.data
-            setToken(data.access_token, data.refresh_token)
-          })
-          .catch(() => {
-            window.location.href = "login";
-          })
-        } catch(refreshError) {
-          return Promise.reject(refreshError)
+          await axios
+            .get(`${BASEURL}/users/reissue`, {
+              headers: {
+                authorization: `Bearer ${refreshToken}`,
+              },
+            })
+            .then((response) => {
+              const data = response.data;
+              setToken(data.access_token, data.refresh_token);
+            })
+            .catch(() => {
+              window.location.href = 'login';
+            });
+        } catch (refreshError) {
+          return Promise.reject(refreshError);
         }
       }
     }
-    return Promise.reject(error)
-  } 
-)
+    return Promise.reject(error);
+  },
+);
 
 export default instance;
