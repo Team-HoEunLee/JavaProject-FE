@@ -1,6 +1,12 @@
 import instance from 'utils/api/axios';
 import { useMutation, useQuery } from '@tanstack/react-query';
-import { TokenResponse, SignupRequest, LoginRequest } from 'models/auth';
+import {
+  TokenResponse,
+  SignupRequest,
+  LoginRequest,
+  UpdateUserInfoRequest,
+  RankListResponse,
+} from 'models/auth';
 import { setToken } from 'utils/api/function/TokenManage';
 
 const path = '/users';
@@ -33,11 +39,21 @@ export const useLogin = () => {
 };
 
 export const useInfo = () => {
-  return useQuery({
+  return useQuery<UpdateUserInfoRequest, Error>({
     queryKey: ['userInfo'],
     queryFn: async () => {
-      const { data } = await instance.get(`${path}/info`);
-      return data.response;
+      const { data } = await instance.get<UpdateUserInfoRequest>(`${path}/info`);
+      return data;
+    },
+  });
+};
+
+export const useRank = () => {
+  return useQuery<RankListResponse, Error>({
+    queryKey: ['userRank'],
+    queryFn: async () => {
+      const { data } = await instance.get<RankListResponse>(`${path}/rank`);
+      return data;
     },
   });
 };
