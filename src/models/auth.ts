@@ -15,3 +15,22 @@ export interface LoginRequest {
   accountId: string;
   password: string;
 }
+
+export interface UpdateUserInfoRequest {
+  accountId: string;
+  name: string;
+  areaId: Array<number>;
+  introduction: string;
+}
+
+export interface RankListResponse {
+  rankListResponse: RankResponse[];
+  myName: string;
+  myScore: number;
+  myRank: number;
+}
+
+export interface RankResponse {
+  name: string;
+  score: number;
+}
