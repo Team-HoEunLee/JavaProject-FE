@@ -5,19 +5,26 @@ import { AuthLogin } from '../../constants/index';
 import { useNavigate } from 'react-router-dom';
 import { InputFormStore } from 'stores/InputFormStore';
 import { useLogin } from 'utils/api/auth';
-import { setToken } from 'utils/api/function/TokenManage';
 
 const Login = () => {
   const navigate = useNavigate();
+  const { mutate } = useLogin();
+
   const { form, changeForm } = InputFormStore();
 
   const handleLogin = () => {
     const data = {
-      account: form.account,
+      accountId: form.accountId,
       password: form.password,
     };
-    const test = useLogin();
-    console.log(test);
+
+    try {
+      mutate(data);
+      console.log('로그인 성공');
+      navigate('/main');
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
