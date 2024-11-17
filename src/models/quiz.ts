@@ -15,7 +15,7 @@ export interface QuizDetailResponse {
 }
 
 export interface QuizListResponse {
-  quizResponse: QuizResponse[]
+  quizResponse: QuizResponse[];
 }
 
 export interface QuizResponse {
@@ -24,7 +24,7 @@ export interface QuizResponse {
   question: string;
   areaIds: Array<number>;
   level: Array<levelType>;
-  avgScore: number
+  avgScore: number;
 }
 
 export interface CategoryListResponse {

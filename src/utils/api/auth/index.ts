@@ -17,7 +17,7 @@ export const useSignUp = () => {
   });
 };
 
-export const useLogin = async () => {
+export const useLogin = () => {
   return useMutation<TokenResponse, Error, LoginRequest>({
     mutationFn: async (data: LoginRequest) => {
       const response = await instance.post<TokenResponse>(`${path}/login`, data);
