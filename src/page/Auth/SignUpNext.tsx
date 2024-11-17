@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Logo, Bag, ArrowDown } from '../../assets/Auth/index';
 import Input from '../../components/Auth/Input';
 import Button from '../../components/Auth/Button';
@@ -18,7 +18,7 @@ const SignUpNext = () => {
 
   const { mutate } = useSignUp();
   const { form, changeForm, resetForm } = InputFormStore();
-  const { checkedList, handleChange: checkListHandleChange } = useCheckedList();
+  const { checkedList, handleChange } = useCheckedList();
   const { accountId, password, name, introduction } = form;
 
   const modalOutSideClick = (e: any) => {
@@ -33,12 +33,13 @@ const SignUpNext = () => {
       password,
       name,
       introduction,
-      areaId: checkedList,
+      areaId: [1],
     };
     try {
       mutate(data);
       navigate('/login');
       resetForm();
+      console.log('회원가입 성공');
     } catch (error) {
       console.log(data);
     }
@@ -80,8 +81,8 @@ const SignUpNext = () => {
                 <Options
                   key={index}
                   text={value}
-                  selected={checkedList.includes(value)}
-                  onClick={() => checkListHandleChange(value)}
+                  selected={checkedList.includes(index + 1)}
+                  onClick={() => handleChange(index + 1)}
                 />
               ))}
             </div>
@@ -90,7 +91,7 @@ const SignUpNext = () => {
           )}
           <div className="w-80 flex flex-wrap gap-2">
             {checkedList.map((value, index) => (
-              <MajorSubjectTag key={index} text={value} />
+              <MajorSubjectTag key={index} text={UserMajorValues[value - 1]} />
             ))}
           </div>
         </div>
