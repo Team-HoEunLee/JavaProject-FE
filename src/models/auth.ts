@@ -34,3 +34,12 @@ export interface RankResponse {
   name: string;
   score: number;
 }
+
+export interface UserForm {
+  accountId: string;
+  name: string;
+  introduction: string;
+  myRank: number;
+  area: string[];
+  unsolvedQuizIds: number[];
+}
