@@ -68,12 +68,14 @@ export const useQuizCategory = () => {
 };
 
 // 배너 조회
-export const useQuizBanner = () => {
-  return useQuery<QuizListResponse, Error, { quizType: quizType }>({
-    queryKey: ['QuizBanner'],
-    queryFn: async (quizType) => {
+export const useQuizBanner = (quizType: quizType | null) => {
+  return useQuery<QuizListResponse, Error>({
+    queryKey: ['QuizBanner', quizType],
+    queryFn: async () => {
+      if (!quizType) return;
       const { data } = await instance.get(`${path}/banner/quizType=${quizType}`);
       return data;
     },
+    enabled: !!quizType,
   });
 };
