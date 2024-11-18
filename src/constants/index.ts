@@ -61,6 +61,7 @@ export const MainItemsCategory: MainItemsDataType[] = [
     info: 'Dayoung을 처음 접하는 분들을 위한 문제를 선정했어요!',
     icon: Sprout,
     backColor: 'bg-green300',
+    quizType: 'BEGINNER',
   },
   {
     name: 'New Upload Recently',
@@ -68,6 +69,7 @@ export const MainItemsCategory: MainItemsDataType[] = [
     info: '신규 문제들이 나타났어요! 문제를 풀이해보세요!',
     icon: Map,
     backColor: 'bg-pointPurple',
+    quizType: 'RECENT',
   },
   {
     name: 'No Solution',
@@ -75,6 +77,7 @@ export const MainItemsCategory: MainItemsDataType[] = [
     info: '아무도 풀지 못한 문제들을 가져왔어요!',
     icon: HandShake,
     backColor: 'bg-pointBlue',
+    quizType: 'TEMPORARY',
   },
   {
     name: 'Many Solve',
@@ -82,6 +85,7 @@ export const MainItemsCategory: MainItemsDataType[] = [
     info: '사용자들이 많이 풀어본 문제에 도전해보세요!',
     icon: Bulb,
     backColor: 'bg-pointPink',
+    quizType: 'MOST_SOLVED',
   },
 ];
 

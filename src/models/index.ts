@@ -10,7 +10,10 @@ export interface MainItemsDataType {
   info: string;
   icon: React.FC;
   backColor: string;
+  quizType: QuizType;
 }
+
+export type QuizType = 'BEGINNER' | 'RECENT' | 'TEMPORARY' | 'MOST_SOLVED';
 
 export interface QuestionKeywordDataType {
   name: string;
