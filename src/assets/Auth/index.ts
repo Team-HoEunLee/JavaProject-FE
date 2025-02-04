@@ -7,3 +7,5 @@ export { ReactComponent as Lock } from './Lock.svg';
 export { ReactComponent as Logo } from './Logo.svg';
 export { ReactComponent as User } from './User.svg';
 export { ReactComponent as Page } from './Page.svg';
+export { ReactComponent as SvgTest } from './SvgTest.svg';
+export { ReactComponent as SvgTest2 } from './SvgTest2.svg';

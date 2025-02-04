@@ -1,4 +1,6 @@
 import { Logo } from '../../assets/Auth/index';
+import { SvgTest } from '../../assets/Auth/index';
+import { SvgTest2 } from '../../assets/Auth/index';
 import Input from '../../components/Auth/Input';
 import Button from 'components/Auth/Button';
 import { AuthLogin } from '../../constants/index';
@@ -22,9 +24,9 @@ const Login = () => {
 
   return (
     <div className="w-full h-screen flex justify-center items-center bg-auth bg-cover">
-      <div className="flex flex-col gap-14 p-16 rounded-3xl bg-white">
+      <div className="flex flex-col gap-16 p-16 rounded-3xl bg-white">
         <div className="flex flex-col justify-center items-center h-20">
-          <Logo />
+          <SvgTest2 />
           <p className="text-regular12">로그인</p>
         </div>
         <div className="flex flex-col gap-2.5">
