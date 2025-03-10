@@ -4,13 +4,11 @@ import { SvgTest2 } from '../../assets/Auth/index';
 import Input from '../../components/Auth/Input';
 import Button from 'components/Auth/Button';
 import { AuthLogin } from '../../constants/index';
-import { useNavigate } from 'react-router-dom';
 import { InputFormStore } from 'stores/InputFormStore';
 import { useLogin } from 'utils/api/auth';
 import { setToken } from 'utils/api/function/TokenManage';
 
 const Login = () => {
-  const navigate = useNavigate();
   const { form, changeForm } = InputFormStore();
 
   const handleLogin = () => {
