@@ -8,6 +8,7 @@ import SolvedFeedback from 'page/Question/SolvedFeedback';
 import WriteQuestion from 'page/Admin/WriteQuestion';
 import Layout from 'components/Layout';
 import MyPage from 'page/User/MyPage';
+import JobisLogin from '../page/Jobis/JobisLogin';
 
 const Router = () => {
   return (
@@ -17,6 +18,7 @@ const Router = () => {
         <Route path="/signUp" element={<SignUp />} />
         <Route path="/signUpNext" element={<SignUpNext />} />
         <Route path="/user" element={<MyPage />} />
+        <Route path="/jobisLogin" element={<JobisLogin />} />
         <Route path="/" element={<Layout />}>
           <Route path="/main" element={<Main />} />
           <Route path="/solve" element={<QuestionSolving />} />
