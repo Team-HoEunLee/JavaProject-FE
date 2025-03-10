@@ -37,6 +37,8 @@ module.exports = {
       pink200: '#C66683',
       pink100: '#EAA0B6',
       red100: '#FC5859',
+      jobisGray20: '#FAFAFA',
+      primary20: '#135C9D',
     },
     fontSize: {
       semi52: [
@@ -203,6 +205,9 @@ module.exports = {
     },
     backgroundImage: {
       auth: "url('./assets/Auth/Background.png')",
+    },
+    jobisShadow: {
+      '3xl': ['0px 10px 8px rgba(0, 0, 0, 0.2)', '0px 4px 3px rgba(0, 0, 0, 0.2)'],
     },
   },
   plugins: [],
